@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<!-- lang="vi" khai báo ngôn ngữ trang → hỗ trợ screen reader & SEO -->
+<html lang="vi">
+
+<head>
+  <!-- ========== METADATA BẮT BUỘC ========== -->
+  <meta charset="UTF-8" />
+  <!-- viewport: nền tảng của responsive mobile-first, khóa tỉ lệ 1:1 với thiết bị -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Portfolio CV của Trần Đăng Bình – Frontend Developer. Dự án, kỹ năng và thông tin liên hệ." />
+  <meta name="author" content="Trần Đăng Bình" />
+  <title>Trần Đăng Bình · Frontend Developer</title>
+
+  <!-- Liên kết tới file CSS tách rời (yêu cầu của bài) -->
+  <link rel="stylesheet" href="./assets/css/styles.css" />
+</head>
+
+<body>
+
+  <!-- ========================================================== -->
+  <!-- HEADER: nhận diện + điều hướng chính                        -->
+  <!-- ========================================================== -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <!-- Thương hiệu cá nhân -->
+      <a class="brand" href="#top" aria-label="Về đầu trang">
+        <span class="brand-mark" aria-hidden="true">B</span>
+        <span class="brand-name">Trần Đăng Bình</span>
+      </a>
+
+      <!-- NAV dùng Flexbox (xem styles.css) -->
+      <nav class="main-nav" aria-label="Điều hướng chính">
+        <ul class="nav-list">
+          <li><a href="#about">Giới thiệu</a></li>
+          <li><a href="#skills">Kỹ năng</a></li>
+          <li><a href="#projects">Dự án</a></li>
+          <li><a href="#contact">Liên hệ</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ========================================================== -->
+  <!-- MAIN: toàn bộ nội dung chính của trang                      -->
+  <!-- ========================================================== -->
+  <main id="top">
+    <!-- ----- SECTION: Giới thiệu / Hero ----- -->
+    <section id="about" class="hero">
+      <div class="container hero-inner">
+        <div class="hero-text">
+          <p class="eyebrow">Xin chào, tôi là</p>
+          <h1 class="hero-title">Trần Đăng Bình</h1>
+          <p class="hero-role">Frontend Developer &amp; UI Enthusiast</p>
+          <p class="hero-desc">
+            Tôi xây dựng giao diện web sạch sẽ, dễ tiếp cận và responsive.
+            Tôi học ngành Công nghệ thông tin, yêu thích HTML/CSS ngữ nghĩa
+            và trải nghiệm người dùng tối giản.
+          </p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#projects">Xem dự án</a>
+            <a class="btn btn-outline" href="#contact">Liên hệ tôi</a>
+          </div>
+        </div>
+
+        <!-- Ảnh đại diện: dùng placeholder, thay bằng ảnh thật của bạn -->
+        <figure class="hero-avatar">
+          <img
+            src="./assets/img/avatar.jpg"
+            alt="Ảnh đại diện của Trần Đăng Bình"
+            width="320" height="320" />
+        </figure>
+      </div>
+    </section>
+
+    <!-- ----- SECTION: Kỹ năng ----- -->
+    <section id="skills" class="section">
+      <div class="container">
+        <h2 class="section-title">Kỹ năng</h2>
+        <p class="section-sub">Những công nghệ và kỹ năng tôi sử dụng thường xuyên.</p>
+
+        <ul class="skill-grid">
+          <li class="skill-chip">HTML5</li>
+          <li class="skill-chip">CSS3 / Flexbox / Grid</li>
+          <li class="skill-chip">JavaScript (ES6+)</li>
+          <li class="skill-chip">Responsive Design</li>
+          <li class="skill-chip">Git &amp; GitHub</li>
+          <li class="skill-chip">Figma / Wireframe</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ----- SECTION: Dự án (danh sách thẻ dùng CSS Grid) ----- -->
+    <section id="projects" class="section section-muted">
+      <div class="container">
+        <h2 class="section-title">Dự án tiêu biểu</h2>
+        <p class="section-sub">Một vài sản phẩm tôi đã thực hiện.</p>
+
+        <!-- .project-grid dùng CSS Grid (xem styles.css) -->
+        <div class="project-grid">
+
+          <!-- Mỗi thẻ là một <article> độc lập, có thể đứng riêng -->
+          <article class="card">
+            <img class="card-media"
+              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRzDuQIhcXwhCePGCGM1QQjmhjcmGtckY-lq8nzEx6OJHauR3UHmVpBK7bu&s=1024"
+              alt="Ảnh minh họa dự án Landing Page" width="600" height="360" />
+            <div class="card-body">
+              <h3 class="card-title">Landing Page Sản Phẩm</h3>
+              <p class="card-desc">
+                Trang giới thiệu sản phẩm responsive, tối ưu tốc độ tải và SEO cơ bản.
+              </p>
+              <ul class="tag-list">
+                <li>HTML</li>
+                <li>CSS</li>
+                <li>Grid</li>
+              </ul>
+              <a class="card-link" href="https://www.facebook.com/?locale=vi_VN">Xem chi tiết →</a>
+            </div>
+          </article>
+
+          <article class="card">
+            <img class="card-media"
+              src="https://cellphones.com.vn/sforum/wp-content/uploads/2023/08/hinh-nen-desktop-43.jpg"
+              alt="Ảnh minh họa dự án Todo App" width="600" height="360" />
+            <div class="card-body">
+              <h3 class="card-title">Ứng dụng Todo List</h3>
+              <p class="card-desc">
+                Ứng dụng quản lý công việc với lưu trữ cục bộ và giao diện tối giản.
+              </p>
+              <ul class="tag-list">
+                <li>JavaScript</li>
+                <li>Flexbox</li>
+              </ul>
+              <a class="card-link" href="https://www.youtube.com/">Xem chi tiết →</a>
+            </div>
+          </article>
+
+          <article class="card">
+            <img class="card-media"
+              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQptG_5FWtiCxZ37wX9KFCUptvFKLuq7yIu5MOPC4kIHw&s=10"
+              alt="Ảnh minh họa dự án Weather Dashboard" width="600" height="360" />
+            <div class="card-body">
+              <h3 class="card-title">Weather Dashboard</h3>
+              <p class="card-desc">
+                Bảng điều khiển thời tiết lấy dữ liệu từ API công khai, hiển thị theo thẻ.
+              </p>
+              <ul class="tag-list">
+                <li>API</li>
+                <li>Grid</li>
+              </ul>
+              <a class="card-link" href="https://www.tiktok.com/en/">Xem chi tiết →</a>
+            </div>
+          </article>
+
+          <article class="card">
+            <img class="card-media"
+              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ7K896mQOZaTnmsuwQDUeFs4vVOXh4ZLCQMRjCE1626Q&s=10"
+              alt="Ảnh minh họa dự án Blog cá nhân" width="600" height="360" />
+            <div class="card-body">
+              <h3 class="card-title">Blog Cá Nhân</h3>
+              <p class="card-desc">
+                Blog tĩnh với bố cục dạng lưới, hỗ trợ đọc tốt trên mọi thiết bị.
+              </p>
+              <ul class="tag-list">
+                <li>HTML</li>
+                <li>CSS</li>
+              </ul>
+              <a class="card-link" href="https://hocvienmarketingonline.com/mau-landing-page-cong-nghe">Xem chi tiết →</a>
+            </div>
+          </article>
+
+        </div><!-- /.project-grid -->
+      </div>
+    </section>
+
+    <!-- ----- SECTION: Liên hệ ----- -->
+    <section id="contact" class="section">
+      <div class="container contact-inner">
+        <h2 class="section-title">Liên hệ</h2>
+        <p class="section-sub">Mở cho các cơ hội thực tập &amp; việc làm Frontend.</p>
+
+        <ul class="contact-list">
+          <li><span class="contact-label">Email</span> <a href="mailto:binhdangtran2202@gmail.com">binhdangtran2202@gmail.com</a></li>
+          <li><span class="contact-label">GitHub</span> <a href="https://github.com/binhtran244466666-ops" target="_blank">github.com/binhtran244466666-ops</a></li>
+          <li><span class="contact-label">Facebook</span> <a href="https://www.facebook.com/tran.binh.29554" target="_blank">facebook.com/tran.binh.29554</a></li>
+        </ul>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ========================================================== -->
+  <!-- FOOTER                                                      -->
+  <!-- ========================================================== -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>© 2026 Trần Đăng Bình. Thiết kế &amp; xây dựng bằng HTML5 + CSS3.</p>
+      <a href="#top" class="to-top">↑ Lên đầu trang</a>
+    </div>
+  </footer>
+
+</body>
+
+</html>
