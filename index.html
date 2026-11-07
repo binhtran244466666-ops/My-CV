@@ -1,333 +1,749 @@
 <!DOCTYPE html>
-<!-- lang="vi" khai báo ngôn ngữ trang, hỗ trợ trình đọc màn hình và công cụ tìm kiếm -->
-<html lang="vi">
-
+<html lang="vi" data-theme="dark">
 <head>
-  <!-- Metadata -->
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta
-    name="description"
-    content="Portfolio của Trần Đăng Bình, Frontend Developer. Tìm hiểu về kỹ năng, dự án và thông tin liên hệ."
-  />
+  <meta name="description" content="Portfolio của Trần Đăng Bình, Frontend Developer." />
   <meta name="author" content="Trần Đăng Bình" />
   <meta name="theme-color" content="#2563eb" />
-
   <title>Trần Đăng Bình · Frontend Developer</title>
 
-  <!-- Favicon và CSS -->
-  <link
-    rel="icon"
-    href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%232563eb'/%3E%3Ctext x='32' y='42' text-anchor='middle' font-family='Arial' font-size='36' font-weight='700' fill='white'%3EB%3C/text%3E%3C/svg%3E"
-  />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%232563eb'/%3E%3Ctext x='32' y='42' text-anchor='middle' font-family='Arial' font-size='36' font-weight='700' fill='white'%3EB%3C/text%3E%3C/svg%3E" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
   <link rel="stylesheet" href="./assets/css/styles.css" />
 </head>
 
-<body id="top">
+<body class="mode-standard" id="top">
+  <div id="nav-veil" aria-hidden="true"></div>
+  <div id="theme-wipe" aria-hidden="true"></div>
+  <div id="pointer-spotlight" aria-hidden="true"></div>
+
+  <div class="scroll-rail" aria-hidden="true">
+    <span class="scroll-rail-fill" id="scroll-rail-fill"></span>
+  </div>
+
+  <svg class="connection-layer" id="skill-connections" aria-hidden="true"></svg>
+
   <header class="site-header">
     <div class="container header-inner">
-      <!-- Thương hiệu cá nhân -->
       <a class="brand" href="#top" aria-label="Về đầu trang">
-        <span class="brand-mark" aria-hidden="true">B</span>
+        <span class="brand-mark" id="brand-mark" aria-hidden="true">B</span>
         <span class="brand-name">Trần Đăng Bình</span>
       </a>
 
-      <!-- Điều hướng chính -->
-      <nav class="main-nav" aria-label="Điều hướng chính">
-        <ul class="nav-list">
-          <li><a href="#about">Giới thiệu</a></li>
-          <li><a href="#skills">Kỹ năng</a></li>
-          <li><a href="#projects">Dự án</a></li>
-          <li><a href="#contact">Liên hệ</a></li>
-        </ul>
-      </nav>
+      <div class="header-right">
+        <nav aria-label="Điều hướng chính">
+          <ul class="nav-list">
+            <li><a href="#about">Giới thiệu</a></li>
+            <li><a href="#skills">Kỹ năng</a></li>
+            <li><a href="#projects">Dự án</a></li>
+            <li><a href="#contact">Liên hệ</a></li>
+          </ul>
+        </nav>
+
+        <div class="header-controls">
+          <button class="pill-button" id="theme-toggle" type="button" aria-label="Chuyển sang giao diện sáng">
+            <i class="fa-solid fa-sun" aria-hidden="true"></i><span>Ngày/đêm</span>
+          </button>
+          <button class="pill-button pro-toggle" id="pro-toggle" type="button" aria-pressed="false">
+            <i class="fa-solid fa-wand-magic-sparkles" aria-hidden="true"></i><span>Pro</span>
+          </button>
+        </div>
+      </div>
     </div>
   </header>
 
   <main id="main-content">
-    <!-- Giới thiệu -->
     <section id="about" class="hero">
       <div class="container hero-inner">
         <div class="hero-text">
-          <p class="eyebrow">Xin chào, tôi là</p>
+          <p class="eyebrow"><i class="fa-solid fa-wave-square"></i> Xin chào, tôi là</p>
           <h1 class="hero-title">Trần Đăng Bình</h1>
           <p class="hero-role">Frontend Developer &amp; UI Enthusiast</p>
           <p class="hero-desc">
-            Tôi xây dựng giao diện web dễ tiếp cận và tương thích với nhiều thiết bị.
-            Tôi đang học chuyên ngành Công nghệ thông tin, yêu thích HTML và CSS
-            ngữ nghĩa cũng như trải nghiệm người dùng tối giản.
+            Tôi xây dựng giao diện web hiện đại, dễ tiếp cận và tương thích với mọi thiết bị.
+            Đang theo học chuyên ngành CNTT với niềm đam mê sáng tạo trải nghiệm người dùng.
           </p>
-
           <div class="hero-actions">
-            <a class="btn btn-primary" href="#projects">Xem dự án của tôi</a>
-            <a class="btn btn-outline" href="#contact">Liên hệ với tôi</a>
+            <a class="btn btn-primary" href="#projects"><i class="fa-solid fa-rocket"></i> Xem dự án</a>
+            <a class="btn btn-outline" href="#contact"><i class="fa-regular fa-paper-plane"></i> Liên hệ ngay</a>
           </div>
         </div>
 
-        <!-- Thay ảnh mẫu bằng ảnh đại diện của bạn -->
-        <figure class="hero-avatar">
-          <img
-            src="./assets/img/AVATAR.png"
-            alt="Ảnh đại diện của Trần Đăng Bình"
-            width="320"
-            height="320"
-          />
+        <figure class="hero-avatar" id="hero-avatar">
+          <span class="avatar-led" style="--i:0" aria-hidden="true"></span>
+          <span class="avatar-led" style="--i:1" aria-hidden="true"></span>
+          <span class="avatar-led" style="--i:2" aria-hidden="true"></span>
+          <span class="avatar-led" style="--i:3" aria-hidden="true"></span>
+          <span class="avatar-led" style="--i:4" aria-hidden="true"></span>
+          <span class="avatar-led" style="--i:5" aria-hidden="true"></span>
+          <span class="avatar-led" style="--i:6" aria-hidden="true"></span>
+          <span class="avatar-led" style="--i:7" aria-hidden="true"></span>
+          <span class="avatar-led" style="--i:8" aria-hidden="true"></span>
+          <span class="avatar-led" style="--i:9" aria-hidden="true"></span>
+          <span class="avatar-led" style="--i:10" aria-hidden="true"></span>
+          <span class="avatar-led" style="--i:11" aria-hidden="true"></span>
+          <img src="./assets/img/AVATAR.png" alt="Ảnh đại diện của Trần Đăng Bình" width="320" height="320" />
         </figure>
       </div>
     </section>
 
-    <!-- Kỹ năng -->
     <section id="skills" class="section">
       <div class="container">
-        <h2 class="section-title">Kỹ năng</h2>
-        <p class="section-sub">
-          Những công nghệ và kỹ năng tôi thường sử dụng.
-        </p>
-
+        <h2 class="section-title">Kỹ năng chuyên môn</h2>
+        <p class="section-sub">Chọn kỹ năng để làm nổi bật các dự án liên quan.</p>
         <ul class="skill-grid">
-          <li class="skill-chip">HTML5</li>
-          <li class="skill-chip">CSS3 / Flexbox / Grid</li>
-          <li class="skill-chip">JavaScript (ES6+)</li>
-          <li class="skill-chip">Responsive Design</li>
-          <li class="skill-chip">Git &amp; GitHub</li>
-          <li class="skill-chip">Figma / Wireframe</li>
+          <li><button class="skill-chip" type="button" data-skill="HTML5"><i class="fa-brands fa-html5"></i> HTML5</button></li>
+          <li><button class="skill-chip" type="button" data-skill="CSS"><i class="fa-brands fa-css3-alt"></i> CSS3 / Flexbox / Grid</button></li>
+          <li><button class="skill-chip" type="button" data-skill="JavaScript"><i class="fa-brands fa-js"></i> JavaScript (ES6+)</button></li>
+          <li><button class="skill-chip" type="button" data-skill="Responsive"><i class="fa-solid fa-mobile-screen"></i> Responsive Design</button></li>
+          <li><button class="skill-chip" type="button" data-skill="Git"><i class="fa-brands fa-github"></i> Git &amp; GitHub</button></li>
+          <li><button class="skill-chip" type="button" data-skill="Figma"><i class="fa-brands fa-figma"></i> Figma / Wireframe</button></li>
         </ul>
       </div>
     </section>
 
-    <!-- Dự án -->
     <section id="projects" class="section section-muted">
       <div class="container">
         <h2 class="section-title">Dự án tiêu biểu</h2>
-        <p class="section-sub">Một vài sản phẩm tôi đã thực hiện.</p>
+        <p class="section-sub">Một số sản phẩm nổi bật tôi đã hoàn thành.</p>
 
-        <div class="project-grid">
-          <article class="card">
-            <img
-              class="card-media"
-              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSDS8wwLzTGOqiIoGf1S7D70qegR5OvKpLypZEnH25dqg&s=10"
-              alt="Ảnh minh họa dự án trang giới thiệu sản phẩm"
-              width="600"
-              height="360"
-            />
+        <div class="project-grid" id="project-grid">
+          <article class="project-card" data-tech="HTML5 CSS SEO Responsive" data-title="Landing Page sản phẩm" data-description="Trang giới thiệu sản phẩm tương thích đa thiết bị, tối ưu tốc độ và chuẩn SEO.">
+            <span class="card-indicator" aria-hidden="true"></span>
+            <img class="card-media" src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=600&q=80" alt="Landing Page sản phẩm" />
             <div class="card-body">
               <h3 class="card-title">Landing Page sản phẩm</h3>
-              <p class="card-desc">
-                Trang giới thiệu sản phẩm tương thích với nhiều thiết bị,
-                tối ưu tốc độ tải và SEO cơ bản.
-              </p>
-              <ul class="tag-list">
-                <li>HTML</li>
-                <li>CSS</li>
-                <li>Grid</li>
-              </ul>
-              <a class="card-link" href="https://www.youtube.com/">Xem chi tiết →</a>
+              <p class="card-desc">Trang giới thiệu sản phẩm tương thích đa thiết bị, tối ưu tốc độ và chuẩn SEO.</p>
+              <ul class="tag-list"><li>HTML5</li><li>CSS Grid</li><li>SEO</li></ul>
+              <button class="card-link project-open" type="button">Xem chi tiết <i class="fa-solid fa-arrow-right"></i></button>
+              <button class="compare-button" type="button">+ Thêm vào so sánh</button>
             </div>
           </article>
 
-          <article class="card">
-            <img
-              class="card-media"
-              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTzGkE8GDPjaqiPcDbGovw0AIwyN3g-VKzoZN8Z8SyrlA&s=10"
-              alt="Ảnh minh họa ứng dụng quản lý công việc"
-              width="600"
-              height="360"
-            />
+          <article class="project-card" data-tech="JavaScript LocalStorage CSS" data-title="Ứng dụng Todo List" data-description="Quản lý công việc thông minh với LocalStorage và giao diện tối giản.">
+            <span class="card-indicator" aria-hidden="true"></span>
+            <img class="card-media" src="https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?auto=format&fit=crop&w=600&q=80" alt="Ứng dụng Todo List" />
             <div class="card-body">
               <h3 class="card-title">Ứng dụng Todo List</h3>
-              <p class="card-desc">
-                Ứng dụng quản lý công việc với lưu trữ cục bộ và giao diện tối giản.
-              </p>
-              <ul class="tag-list">
-                <li>JavaScript</li>
-                <li>Flexbox</li>
-              </ul>
-              <a class="card-link" href="https://www.facebook.com">Xem chi tiết →</a>
+              <p class="card-desc">Quản lý công việc thông minh với LocalStorage và giao diện tối giản.</p>
+              <ul class="tag-list"><li>JavaScript</li><li>LocalStorage</li><li>Flexbox</li></ul>
+              <button class="card-link project-open" type="button">Xem chi tiết <i class="fa-solid fa-arrow-right"></i></button>
+              <button class="compare-button" type="button">+ Thêm vào so sánh</button>
             </div>
           </article>
 
-          <article class="card">
-            <img
-              class="card-media"
-              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRNio3sD_S2z2a9S3zO4VSFZT6R7xKs4xcc9qqMeoSMMg&s=10"
-              alt="Ảnh minh họa bảng điều khiển thời tiết"
-              width="600"
-              height="360"
-            />
+          <article class="project-card" data-tech="JavaScript CSS Responsive" data-title="Weather Dashboard" data-description="Bảng điều khiển thời tiết trực quan lấy dữ liệu realtime từ REST API.">
+            <span class="card-indicator" aria-hidden="true"></span>
+            <img class="card-media" src="https://images.unsplash.com/photo-1592210454359-9043f067919b?auto=format&fit=crop&w=600&q=80" alt="Weather Dashboard" />
             <div class="card-body">
               <h3 class="card-title">Weather Dashboard</h3>
-              <p class="card-desc">
-                Bảng điều khiển thời tiết lấy dữ liệu từ API công khai
-                và hiển thị thông tin theo dạng thẻ.
-              </p>
-              <ul class="tag-list">
-                <li>API</li>
-                <li>Grid</li>
-              </ul>
-              <a class="card-link" href="https://www.instagram.com">Xem chi tiết →</a>
+              <p class="card-desc">Bảng điều khiển thời tiết trực quan lấy dữ liệu realtime từ REST API.</p>
+              <ul class="tag-list"><li>Fetch API</li><li>CSS Grid</li><li>Async/Await</li></ul>
+              <button class="card-link project-open" type="button">Xem chi tiết <i class="fa-solid fa-arrow-right"></i></button>
+              <button class="compare-button" type="button">+ Thêm vào so sánh</button>
             </div>
           </article>
 
-          <article class="card">
-            <img
-              class="card-media"
-              src="https://thanhdo.edu.vn/wp-content/uploads/2025/05/1-5.jpg"
-              alt="Ảnh minh họa blog cá nhân"
-              width="600"
-              height="360"
-            />
+          <article class="project-card" data-tech="HTML5 CSS Figma" data-title="Blog Cá Nhân" data-description="Trang chia sẻ kiến thức công nghệ với trải nghiệm đọc mượt mà.">
+            <span class="card-indicator" aria-hidden="true"></span>
+            <img class="card-media" src="https://images.unsplash.com/photo-1499750310107-5fef28a66643?auto=format&fit=crop&w=600&q=80" alt="Blog cá nhân" />
             <div class="card-body">
-              <h3 class="card-title">Blog cá nhân</h3>
-              <p class="card-desc">
-                Blog tĩnh với bố cục dạng lưới, hỗ trợ đọc tốt trên nhiều thiết bị.
-              </p>
-              <ul class="tag-list">
-                <li>HTML</li>
-                <li>CSS</li>
-              </ul>
-              <a class="card-link" href="https://www.tiktok.com">Xem chi tiết →</a>
+              <h3 class="card-title">Blog Cá Nhân</h3>
+              <p class="card-desc">Trang chia sẻ kiến thức công nghệ với trải nghiệm đọc mượt mà.</p>
+              <ul class="tag-list"><li>HTML5</li><li>CSS Modern</li><li>UI/UX</li></ul>
+              <button class="card-link project-open" type="button">Xem chi tiết <i class="fa-solid fa-arrow-right"></i></button>
+              <button class="compare-button" type="button">+ Thêm vào so sánh</button>
             </div>
           </article>
         </div>
       </div>
     </section>
 
-    <!-- Liên hệ -->
     <section id="contact" class="section">
-      <div class="container contact-inner">
-        <h2 class="section-title">Liên hệ</h2>
-        <p class="section-sub">
-          Tôi sẵn sàng đón nhận các cơ hội thực tập và việc làm Frontend.
-        </p>
+      <div class="container">
+        <h2 class="section-title">Liên hệ hợp tác</h2>
+        <p class="section-sub">Tôi luôn sẵn sàng đón nhận các cơ hội thực tập và dự án mới.</p>
 
-        <ul class="contact-list">
-          <li>
-            <span class="contact-label">Email</span>
-            <a href="mailto:binhdangtran2202@gmail.com">
-              binhdangtran2202@gmail.com
-            </a>
-          </li>
-          <li>
-            <span class="contact-label">GitHub</span>
-            <a href="https://github.com/binhtran244466666-ops">
-              github.com/binhtran244466666-ops
-            </a>
-          </li>
-          <li>
-            <span class="contact-label">Facebook</span>
-            <a href="https://www.facebook.com/tran.binh.29554">
-              facebook.com/tran.binh.29554
-            </a>
-          </li>
-        </ul>
-        <div class="message-form">
-  <h2 class="section-title">Gửi tin nhắn cho tôi</h2>
-  <p class="message-form-note">
-    Các trường có dấu <span class="message-required">*</span> là bắt buộc.
-  </p>
+        <div class="quick-message">
+          <button class="quick-message-toggle" id="quick-message-toggle" type="button" aria-expanded="false" aria-controls="quick-form-panel">
+            <span class="quick-message-label"><i class="fa-regular fa-paper-plane"></i><span>Gửi tin nhắn liên hệ nhanh</span></span>
+            <i class="fa-solid fa-chevron-down quick-chevron" aria-hidden="true"></i>
+          </button>
 
-  <form>
-    <div class="message-fields">
-      <div class="message-field">
-        <label for="message-name">
-          Họ và tên <span class="message-required">*</span>
-        </label>
-        <input
-          id="message-name"
-          name="name"
-          type="text"
-          placeholder="Ví dụ: Trần Đăng Bình"
-          minlength="2"
-          autocomplete="name"
-          required
-        />
-        <small class="message-help">Nhập ít nhất 2 ký tự.</small>
-      </div>
+          <div class="quick-form-panel" id="quick-form-panel">
+            <div class="quick-form-inner">
+              <div class="message-form">
+                <h3>Gửi tin nhắn</h3>
+                <p class="message-form-note">Điền thông tin bên dưới để gửi lời nhắn.</p>
 
-      <div class="message-field">
-        <label for="message-email">
-          Email <span class="message-required">*</span>
-        </label>
-        <input
-          id="message-email"
-          name="email"
-          type="email"
-          placeholder="xxx@example.com"
-          autocomplete="email"
-          required
-        />
-        <small class="message-help">Nhập địa chỉ email hợp lệ.</small>
-      </div>
+                <div class="form-progress" aria-label="Tiến độ điền biểu mẫu">
+                  <div class="form-progress-fill" id="form-progress-fill"></div>
+                </div>
 
-      <div class="message-field">
-        <label for="message-subject">
-          Chủ đề <span class="message-required">*</span>
-        </label>
-        <select id="message-subject" name="subject" required>
-          <option value="" selected disabled>-- Chọn chủ đề --</option>
-          <option value="internship">Cơ hội thực tập</option>
-          <option value="work">Cơ hội việc làm</option>
-          <option value="project">Trao đổi về dự án</option>
-          <option value="other">Khác</option>
-        </select>
-      </div>
+                <form id="message-form" novalidate>
+                  <div class="message-fields">
+                    <div class="message-field">
+                      <label for="message-name">Họ và tên <span class="message-required">*</span></label>
+                      <input id="message-name" name="name" type="text" placeholder="Ví dụ: Trần Đăng Bình" required />
+                    </div>
+                    <div class="message-field">
+                      <label for="message-email">Email <span class="message-required">*</span></label>
+                      <input id="message-email" name="email" type="email" placeholder="name@example.com" required />
+                    </div>
+                    <div class="message-field message-field-wide">
+                      <label for="message-subject">Chủ đề <span class="message-required">*</span></label>
+                      <select id="message-subject" name="subject" required>
+                        <option value="" selected disabled>-- Chọn chủ đề --</option>
+                        <option value="internship">Cơ hội thực tập</option>
+                        <option value="work">Cơ hội việc làm</option>
+                        <option value="project">Trao đổi về dự án</option>
+                        <option value="other">Khác</option>
+                      </select>
+                    </div>
+                    <div class="message-field message-field-wide">
+                      <label for="message-content">Nội dung <span class="message-required">*</span></label>
+                      <textarea id="message-content" name="message" rows="3" placeholder="Bạn muốn trao đổi điều gì?" required></textarea>
+                    </div>
+                    <label class="message-consent message-field-wide" for="message-consent">
+                      <input id="message-consent" name="consent" type="checkbox" required />
+                      <span>Tôi đồng ý để thông tin trên được sử dụng nhằm phản hồi.</span>
+                    </label>
+                  </div>
 
-      <div class="message-field message-field-wide">
-        <label for="message-content">
-          Nội dung <span class="message-required">*</span>
-        </label>
-        <textarea
-          id="message-content"
-          name="message"
-          placeholder="Bạn muốn trao đổi điều gì?"
-          minlength="10"
-          maxlength="1000"
-          required
-        ></textarea>
-        <small class="message-help">Nội dung cần từ 10 đến 1000 ký tự.</small>
-      </div>
+                  <div class="message-actions" id="message-actions">
+                    <button class="btn btn-primary" type="submit"><i class="fa-solid fa-paper-plane"></i> Gửi tin nhắn</button>
+                    <button class="btn message-reset" type="reset">Xóa nội dung</button>
+                  </div>
+                  <p class="message-status" id="message-status" role="status" aria-live="polite" hidden>
+                    Tính năng đang phát triển, vui lòng liên hệ qua các kênh bên dưới.
+                  </p>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
 
-      <label class="message-consent message-field-wide" for="message-consent">
-        <input
-          id="message-consent"
-          name="consent"
-          type="checkbox"
-          required
-        />
-        <span>
-          Tôi đồng ý để thông tin trên được dùng nhằm phản hồi tin nhắn.
-        </span>
-      </label>
-
-      <div class="message-field message-field-wide message-disabled">
-        <label for="message-disabled">
-          Trường minh họa trạng thái vô hiệu hóa
-        </label>
-        <input
-          id="message-disabled"
-          type="text"
-          value="Trường này đang bị vô hiệu hóa"
-          disabled
-        />
-      </div>
-    </div>
-
-    <div class="message-actions">
-      <button class="message-submit" type="submit">Gửi tin nhắn</button>
-      <button class="message-reset" type="reset">Xóa nội dung</button>
-    </div>
-  </form>
-</div>
+        <div class="contact-info">
+          <h3>Thông tin kết nối</h3>
+          <p>Đừng ngần ngại gửi tin nhắn cho tôi nếu bạn có câu hỏi hoặc cơ hội hợp tác!</p>
+          <ul class="contact-list">
+            <li>
+              <div class="contact-icon"><i class="fa-regular fa-envelope"></i></div>
+              <div><span class="contact-label">Email</span><a href="mailto:binhdangtran2202@gmail.com">binhdangtran2202@gmail.com</a></div>
+            </li>
+            <li>
+              <div class="contact-icon"><i class="fa-brands fa-github"></i></div>
+              <div><span class="contact-label">GitHub</span><a href="https://github.com/binhtran244466666-ops" target="_blank" rel="noopener noreferrer">binhtran244466666-ops</a></div>
+            </li>
+            <li>
+              <div class="contact-icon"><i class="fa-brands fa-facebook"></i></div>
+              <div><span class="contact-label">Facebook</span><a href="https://www.facebook.com/tran.binh.29554" target="_blank" rel="noopener noreferrer">Trần Đăng Bình</a></div>
+            </li>
+          </ul>
+        </div>
       </div>
     </section>
   </main>
 
   <footer class="site-footer">
     <div class="container footer-inner">
-      <p>Thiết kế và xây dựng bằng HTML5 và CSS3.</p>
-      <a href="#top" class="to-top">↑ Lên đầu trang</a>
+      <p>© 2026 Trần Đăng Bình. Designed with Modern HTML5 &amp; CSS3.</p>
+      <a class="to-top" href="#top"><i class="fa-solid fa-arrow-up"></i> Lên đầu trang</a>
     </div>
   </footer>
-</body>
 
+  <dialog class="warning-dialog" id="pro-warning">
+    <div class="dialog-content">
+      <div class="warning-icon"><i class="fa-solid fa-bolt"></i></div>
+      <h2>Bật chế độ Pro?</h2>
+      <p>Chế độ này có nhiều hiệu ứng chuyển động và có thể làm trang chạy chậm trên một số thiết bị. Bạn vẫn có thể tắt Pro bất cứ lúc nào.</p>
+      <div class="dialog-actions">
+        <button class="btn btn-primary" id="pro-continue" type="button">Tiếp tục bật Pro</button>
+        <button class="btn btn-outline" id="pro-cancel" type="button">Hủy</button>
+      </div>
+    </div>
+  </dialog>
+
+  <dialog class="project-dialog" id="project-dialog">
+    <div class="dialog-content">
+      <img class="dialog-project-image" id="dialog-project-image" alt="" />
+      <h2 id="project-dialog-title"></h2>
+      <p id="project-dialog-description"></p>
+      <ul class="tag-list" id="project-dialog-tags"></ul>
+      <div class="dialog-actions"><button class="btn btn-outline dialog-close" type="button">Đóng</button></div>
+    </div>
+  </dialog>
+
+  <dialog class="project-dialog" id="compare-dialog">
+    <div class="dialog-content">
+      <h2>So sánh dự án</h2>
+      <div class="compare-columns" id="compare-columns"></div>
+      <div class="dialog-actions"><button class="btn btn-outline dialog-close" type="button">Đóng</button></div>
+    </div>
+  </dialog>
+
+  <script>
+    const $ = (selector, root = document) => root.querySelector(selector);
+    const $$ = (selector, root = document) => [...root.querySelectorAll(selector)];
+    const body = document.body;
+    const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+    const themeToggle = $("#theme-toggle");
+    const proToggle = $("#pro-toggle");
+    const warningDialog = $("#pro-warning");
+    const themeWipe = $("#theme-wipe");
+    const navVeil = $("#nav-veil");
+    const connectionSvg = $("#skill-connections");
+
+    /* Đổi giao diện ngày/đêm bằng vòng sáng nhanh */
+    themeToggle.addEventListener("click", () => {
+      const next = document.documentElement.dataset.theme === "dark" ? "light" : "dark";
+
+      if (reducedMotion.matches) {
+        setTheme(next);
+        return;
+      }
+
+      const rect = themeToggle.getBoundingClientRect();
+      themeWipe.style.setProperty("--wipe-x", `${rect.left + rect.width / 2}px`);
+      themeWipe.style.setProperty("--wipe-y", `${rect.top + rect.height / 2}px`);
+      themeWipe.style.background = next === "light" ? "#fff7e8" : "#0b1729";
+      themeWipe.classList.remove("is-open");
+
+      requestAnimationFrame(() => {
+        themeWipe.classList.add("is-open");
+        setTimeout(() => {
+          setTheme(next);
+          themeWipe.style.transition = "none";
+          themeWipe.classList.remove("is-open");
+          void themeWipe.offsetHeight;
+          themeWipe.style.transition = "";
+        }, 430);
+      });
+    });
+
+    function setTheme(theme) {
+      document.documentElement.dataset.theme = theme;
+      themeToggle.innerHTML = theme === "light"
+        ? '<i class="fa-solid fa-moon" aria-hidden="true"></i><span>Ngày/đêm</span>'
+        : '<i class="fa-solid fa-sun" aria-hidden="true"></i><span>Ngày/đêm</span>';
+      themeToggle.setAttribute(
+        "aria-label",
+        theme === "light" ? "Chuyển sang giao diện tối" : "Chuyển sang giao diện sáng"
+      );
+    }
+
+    /* Cuộn thường để trình duyệt xử lý; tăng tốc chỉ trong Pro */
+    function proScrollTo(target) {
+      const start = window.scrollY;
+      const end = target.getBoundingClientRect().top + start - 76;
+      const distance = end - start;
+      const duration = 620;
+      const began = performance.now();
+
+      function step(now) {
+        const t = Math.min((now - began) / duration, 1);
+        const eased = t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
+        window.scrollTo(0, start + distance * eased);
+        if (t < 1) requestAnimationFrame(step);
+      }
+      requestAnimationFrame(step);
+    }
+
+    $$('a[href^="#"]').forEach((link) => {
+      link.addEventListener("click", (event) => {
+        const target = $(link.getAttribute("href"));
+        if (!target || !body.classList.contains("mode-pro")) return;
+
+        event.preventDefault();
+        navVeil.classList.add("is-active");
+        proScrollTo(target);
+
+        setTimeout(() => {
+          navVeil.classList.remove("is-active");
+          target.classList.add("section-arrival");
+          setTimeout(() => target.classList.remove("section-arrival"), 750);
+        }, 650);
+      });
+    });
+
+    const navLinks = $$(".nav-list a");
+    const sectionObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        navLinks.forEach((link) => {
+          link.classList.toggle("is-active", link.getAttribute("href") === `#${entry.target.id}`);
+        });
+      });
+    }, { rootMargin: "-30% 0px -60% 0px" });
+
+    $$("main section[id]").forEach((section) => sectionObserver.observe(section));
+
+    /* Form mở/đóng, thanh tiến độ và thông báo */
+    const quickToggle = $("#quick-message-toggle");
+    const quickPanel = $("#quick-form-panel");
+    const form = $("#message-form");
+    const statusMessage = $("#message-status");
+    const messageActions = $("#message-actions");
+    const progressFill = $("#form-progress-fill");
+
+    quickToggle.addEventListener("click", () => {
+      const open = quickToggle.getAttribute("aria-expanded") === "true";
+      quickToggle.setAttribute("aria-expanded", String(!open));
+      quickPanel.classList.toggle("is-open", !open);
+    });
+
+    const progressFields = [
+      $("#message-name"),
+      $("#message-email"),
+      $("#message-subject"),
+      $("#message-content"),
+      $("#message-consent")
+    ];
+
+    function updateProgress() {
+      const complete = progressFields.filter((field) =>
+        field.type === "checkbox" ? field.checked : field.value.trim() !== ""
+      ).length;
+      progressFill.style.width = `${complete / progressFields.length * 100}%`;
+    }
+
+    progressFields.forEach((field) => {
+      field.addEventListener("input", updateProgress);
+      field.addEventListener("change", updateProgress);
+    });
+
+    form.addEventListener("submit", (event) => {
+      event.preventDefault();
+      statusMessage.hidden = false;
+      messageActions.classList.add("is-sent");
+    });
+
+    form.addEventListener("reset", () => {
+      statusMessage.hidden = true;
+      messageActions.classList.remove("is-sent");
+      requestAnimationFrame(updateProgress);
+    });
+
+    /* Chữ trên thẻ chuyển động nhẹ khi rê trong Pro */
+    $$(".card-title").forEach((title) => {
+      const text = title.textContent;
+      title.setAttribute("aria-label", text);
+      title.textContent = "";
+
+      [...text].forEach((character, index) => {
+        const span = document.createElement("span");
+        span.className = "dance-letter";
+        span.style.setProperty("--letter-index", index);
+        span.setAttribute("aria-hidden", "true");
+        span.textContent = character === " " ? "\u00a0" : character;
+        title.append(span);
+      });
+    });
+
+    /* Bộ thẻ dự án xòe khi rê bằng chuột trong Pro */
+    const projectGrid = $("#project-grid");
+
+    projectGrid.addEventListener("pointerenter", (event) => {
+      if (body.classList.contains("mode-pro") && event.pointerType === "mouse") {
+        projectGrid.classList.add("fan-active");
+      }
+    });
+
+    projectGrid.addEventListener("pointerleave", () => projectGrid.classList.remove("fan-active"));
+
+    /* Chọn kỹ năng để làm nổi dự án phù hợp */
+    function clearSkillSelection() {
+      $$(".skill-chip").forEach((chip) => chip.classList.remove("is-selected"));
+      $$(".project-card").forEach((card) => card.classList.remove("is-linked", "is-dimmed"));
+      connectionSvg.replaceChildren();
+    }
+
+    function drawConnections(button, cards) {
+      const height = document.documentElement.scrollHeight;
+      connectionSvg.style.height = `${height}px`;
+      connectionSvg.setAttribute("height", height);
+      connectionSvg.setAttribute("viewBox", `0 0 ${window.innerWidth} ${height}`);
+      connectionSvg.replaceChildren();
+
+      const source = button.getBoundingClientRect();
+      const sx = source.left + source.width / 2 + scrollX;
+      const sy = source.top + source.height / 2 + scrollY;
+
+      cards.forEach((card) => {
+        const target = card.getBoundingClientRect();
+        const ex = target.left + target.width / 2 + scrollX;
+        const ey = target.top + 24 + scrollY;
+        const bend = Math.max(45, Math.abs(ey - sy) * 0.3);
+        const path = document.createElementNS("http://www.w3.org/2000/svg", "path");
+        path.setAttribute("class", "energy-path");
+        path.setAttribute("d", `M ${sx} ${sy} C ${sx} ${sy + bend}, ${ex} ${ey - bend}, ${ex} ${ey}`);
+        connectionSvg.append(path);
+      });
+    }
+
+    $$(".skill-chip").forEach((button) => {
+      button.addEventListener("click", () => {
+        const wasSelected = button.classList.contains("is-selected");
+        clearSkillSelection();
+        if (wasSelected) return;
+
+        button.classList.add("is-selected");
+        const skill = button.dataset.skill.toLowerCase();
+        const matches = [];
+
+        $$(".project-card").forEach((card) => {
+          const matched = card.dataset.tech.toLowerCase().includes(skill);
+          card.classList.toggle("is-linked", matched);
+          card.classList.toggle("is-dimmed", !matched);
+          if (matched) matches.push(card);
+        });
+
+        if (body.classList.contains("mode-pro") && matches.length) {
+          drawConnections(button, matches);
+        }
+      });
+    });
+
+    /* Chi tiết dự án và chuyển tiếp ảnh nếu trình duyệt hỗ trợ */
+    const projectDialog = $("#project-dialog");
+    const dialogImage = $("#dialog-project-image");
+    const dialogTitle = $("#project-dialog-title");
+    const dialogDescription = $("#project-dialog-description");
+    const dialogTags = $("#project-dialog-tags");
+
+    $$(".project-open").forEach((button) => {
+      button.addEventListener("click", () => {
+        const card = button.closest(".project-card");
+        const sourceImage = $(".card-media", card);
+
+        function showDialog() {
+          dialogImage.src = sourceImage.src;
+          dialogImage.alt = sourceImage.alt;
+          dialogTitle.textContent = card.dataset.title;
+          dialogDescription.textContent = card.dataset.description;
+          dialogTags.replaceChildren();
+
+          $$(".tag-list li", card).forEach((tag) => {
+            const li = document.createElement("li");
+            li.textContent = tag.textContent;
+            dialogTags.append(li);
+          });
+
+          projectDialog.showModal();
+        }
+
+        if (body.classList.contains("mode-pro") && document.startViewTransition) {
+          sourceImage.style.viewTransitionName = "project-image";
+          dialogImage.style.viewTransitionName = "project-image";
+          document.startViewTransition(showDialog).finished.finally(() => {
+            sourceImage.style.viewTransitionName = "";
+            dialogImage.style.viewTransitionName = "";
+          });
+        } else {
+          showDialog();
+        }
+      });
+    });
+
+    $$(".dialog-close").forEach((button) => {
+      button.addEventListener("click", () => button.closest("dialog").close());
+    });
+
+    [projectDialog, $("#compare-dialog")].forEach((dialog) => {
+      dialog.addEventListener("click", (event) => {
+        if (event.target === dialog) dialog.close();
+      });
+    });
+
+    /* Chọn tối đa hai dự án để so sánh */
+    let compareSelection = [];
+
+    $$(".compare-button").forEach((button) => {
+      button.addEventListener("click", () => {
+        const card = button.closest(".project-card");
+
+        if (compareSelection.includes(card)) {
+          compareSelection = compareSelection.filter((item) => item !== card);
+          button.classList.remove("is-picked");
+          button.textContent = "+ Thêm vào so sánh";
+          return;
+        }
+
+        if (compareSelection.length === 2) {
+          const removed = compareSelection.shift();
+          const oldButton = $(".compare-button", removed);
+          oldButton.classList.remove("is-picked");
+          oldButton.textContent = "+ Thêm vào so sánh";
+        }
+
+        compareSelection.push(card);
+        button.classList.add("is-picked");
+        button.textContent = "Đã chọn";
+
+        if (compareSelection.length === 2) {
+          const columns = $("#compare-columns");
+          columns.replaceChildren();
+
+          compareSelection.forEach((item) => {
+            const panel = document.createElement("div");
+            const heading = document.createElement("h3");
+            const description = document.createElement("p");
+            const technology = document.createElement("p");
+            heading.textContent = item.dataset.title;
+            description.textContent = item.dataset.description;
+            technology.textContent = `Công nghệ: ${item.dataset.tech}`;
+            panel.append(heading, description, technology);
+            columns.append(panel);
+          });
+
+          $("#compare-dialog").showModal();
+        }
+      });
+    });
+
+    /* Spotlight Pro theo con trỏ, tối đa một lần mỗi khung hình */
+    let spotlightFrame = 0;
+
+    window.addEventListener("pointermove", (event) => {
+      if (!body.classList.contains("mode-pro") || event.pointerType !== "mouse" || spotlightFrame) return;
+
+      spotlightFrame = requestAnimationFrame(() => {
+        const spotlight = $("#pointer-spotlight");
+        spotlight.style.left = `${event.clientX - 170}px`;
+        spotlight.style.top = `${event.clientY - 170}px`;
+        spotlight.classList.add("is-visible");
+        spotlightFrame = 0;
+      });
+    });
+
+    document.addEventListener("pointerleave", () => $("#pointer-spotlight").classList.remove("is-visible"));
+
+    /* Thanh tiến độ cuộn */
+    function updateScrollRail() {
+      const max = document.documentElement.scrollHeight - innerHeight;
+      const progress = max > 0 ? scrollY / max : 0;
+      $("#scroll-rail-fill").style.height = `${Math.max(0, Math.min(progress, 1)) * 100}%`;
+    }
+
+    addEventListener("scroll", updateScrollRail, { passive: true });
+    addEventListener("resize", updateScrollRail);
+    updateScrollRail();
+
+    /* Vòng sáng khi bấm nút trong Pro */
+    document.addEventListener("pointerdown", (event) => {
+      if (!body.classList.contains("mode-pro")) return;
+      const button = event.target.closest("button, .btn");
+      if (!button) return;
+
+      const rect = button.getBoundingClientRect();
+      const ripple = document.createElement("span");
+      ripple.className = "button-ripple";
+      ripple.style.left = `${event.clientX - rect.left}px`;
+      ripple.style.top = `${event.clientY - rect.top}px`;
+      button.append(ripple);
+      ripple.addEventListener("animationend", () => ripple.remove(), { once: true });
+    });
+
+    /* Logo B bí mật: bấm nhanh năm lần */
+    let brandClicks = 0;
+    let brandTimer;
+
+    $("#brand-mark").addEventListener("click", () => {
+      brandClicks += 1;
+      clearTimeout(brandTimer);
+      brandTimer = setTimeout(() => { brandClicks = 0; }, 1800);
+
+      if (brandClicks >= 5) {
+        const mark = $("#brand-mark");
+        mark.classList.remove("easter-pop");
+        void mark.offsetWidth;
+        mark.classList.add("easter-pop");
+        brandClicks = 0;
+      }
+    });
+
+    /* Chờ ảnh tải; có giới hạn thời gian để nút Pro không bị kẹt */
+    function waitForAvatar(image) {
+      if (image.complete) {
+        return Promise.resolve(image.naturalWidth > 0);
+      }
+
+      return new Promise((resolve) => {
+        let finished = false;
+
+        const finish = (loaded) => {
+          if (finished) return;
+          finished = true;
+          clearTimeout(timer);
+          resolve(loaded);
+        };
+
+        const timer = setTimeout(() => finish(false), 6000);
+        image.addEventListener("load", () => finish(true), { once: true });
+        image.addEventListener("error", () => finish(false), { once: true });
+      });
+    }
+
+    /* Bật/tắt Pro sau xác nhận; LED chỉ chạy khi avatar đã tải */
+    let proBusy = false;
+
+    async function enablePro() {
+      if (proBusy) return;
+      proBusy = true;
+      proToggle.disabled = true;
+      proToggle.setAttribute("aria-busy", "true");
+
+      const avatar = $(".hero-avatar img");
+      const imageLoaded = await waitForAvatar(avatar);
+
+      body.classList.remove("mode-standard");
+      body.classList.add("mode-pro");
+      $("#hero-avatar").classList.toggle("is-image-ready", imageLoaded);
+      proToggle.setAttribute("aria-pressed", "true");
+      proToggle.disabled = false;
+      proToggle.removeAttribute("aria-busy");
+      proBusy = false;
+    }
+
+    proToggle.addEventListener("click", () => {
+      if (body.classList.contains("mode-pro")) {
+        body.classList.remove("mode-pro");
+        body.classList.add("mode-standard");
+        $("#hero-avatar").classList.remove("is-image-ready");
+        proToggle.setAttribute("aria-pressed", "false");
+        clearSkillSelection();
+        return;
+      }
+
+      let confirmed = false;
+      try {
+        confirmed = sessionStorage.getItem("portfolio-pro-confirmed") === "yes";
+      } catch (_) {}
+
+      if (confirmed) {
+        enablePro();
+      } else {
+        warningDialog.showModal();
+      }
+    });
+
+    $("#pro-continue").addEventListener("click", () => {
+      try {
+        sessionStorage.setItem("portfolio-pro-confirmed", "yes");
+      } catch (_) {}
+      warningDialog.close();
+      enablePro();
+    });
+
+    $("#pro-cancel").addEventListener("click", () => warningDialog.close());
+
+    warningDialog.addEventListener("click", (event) => {
+      if (event.target === warningDialog) warningDialog.close();
+    });
+  </script>
+</body>
 </html>
