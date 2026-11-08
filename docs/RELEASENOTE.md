@@ -1,30 +1,39 @@
 # Release Note
 
-## Phiên bản v1.0.0
+## Phiên bản v1.1.0
 
-- **Ngày phát hành:** 05/11/2026
+- **Ngày phát hành:** 08/11/2026
+- **Phạm vi:** Cập nhật giao diện, tương tác và tài liệu bàn giao theo mã nguồn mới nhất.
 
-### Chức năng mới
+### Điểm mới
 
-- Ra mắt website CV/portfolio cá nhân của Trần Đăng Bình.
-- Bổ sung các khu vực Giới thiệu, Kỹ năng, Dự án tiêu biểu và Liên hệ.
-- Thêm thanh điều hướng nhanh tới từng khu vực trong trang.
-- Hiển thị các kỹ năng: HTML5, CSS3, Flexbox/Grid, JavaScript, Responsive Design, Git/GitHub và Figma.
-- Bổ sung danh sách bốn dự án tiêu biểu: Landing Page Sản Phẩm, Todo List, Weather Dashboard và Blog Cá Nhân.
-- Thiết kế responsive cho điện thoại, máy tính bảng và máy tính để bàn.
-- Hỗ trợ cuộn mượt, bố cục Flexbox/Grid, ảnh đại diện cục bộ và metadata cơ bản cho SEO.
+- Thêm công tắc chuyển giao diện ngày/đêm bằng HTML/CSS thuần.
+- Thêm hiệu ứng gợn sáng, avatar nổi, đèn LED và các animation có kiểm soát.
+- Cho phép chọn kỹ năng để làm nổi bật các dự án liên quan; có nút “Hiện tất cả”.
+- Thêm 4 hộp chi tiết dự án mở/đóng bằng liên kết `:target`.
+- Thêm chọn nhiều dự án vào khay so sánh bằng checkbox.
+- Thêm form liên hệ nhanh gồm họ tên, email, chủ đề, nội dung và xác nhận đồng ý.
+- Hiển thị tiến độ điền form và dùng validation bắt buộc native của trình duyệt.
+- Bổ sung hỗ trợ `prefers-reduced-motion` để giảm chuyển động khi người dùng yêu cầu.
+- Làm mới ảnh minh chứng ở ba viewport: mobile 390×844, tablet 768×1024 và desktop 1440×900.
 
-### Lỗi đã sửa
+### Thay đổi kỹ thuật
 
-- Khắc phục nguy cơ tràn nội dung theo chiều ngang trên màn hình nhỏ.
-- Cải thiện khả năng hiển thị hình ảnh bằng kích thước, thuộc tính `alt` và quy tắc co giãn phù hợp.
-- Sắp xếp lại bố cục trên thiết bị nhỏ để nội dung và thanh điều hướng tự xuống dòng.
-- Chuẩn hóa cấu trúc HTML semantic và liên kết điều hướng nội bộ giữa các phần.
+- Không bổ sung dependency, backend hoặc tệp JavaScript runtime.
+- Tương tác được triển khai bằng checkbox/radio, pseudo-class `:has()`, `:target` và validation HTML.
+- Giữ ảnh đại diện cục bộ tại `assets/img/AVATAR.png`; ảnh minh họa dự án vẫn tải từ Unsplash.
+
+### Đã xác nhận
+
+- Máy chủ tĩnh cục bộ phục vụ `index.html` thành công với HTTP 200.
+- Trang có 4 section chính: Giới thiệu, Kỹ năng, Dự án và Liên hệ.
+- Có 4 hộp chi tiết tương ứng với 4 dự án.
+- Theme, lọc kỹ năng, mở chi tiết dự án và form liên hệ hoạt động trong trình duyệt.
+- Ảnh responsive được chụp lại từ bản mã nguồn hiện tại.
 
 ### Hạn chế còn tồn tại
 
-- Phiên bản hiện tại là website tĩnh, chưa có backend hoặc cơ sở dữ liệu.
-- Chưa có tệp JavaScript riêng; các chức năng tương tác nâng cao chưa được triển khai.
-- Nội dung dự án và thông tin liên hệ cần được cập nhật thủ công trong `index.html`.
-- Một số ảnh minh họa dự án được tải từ URL bên ngoài nên có thể không hiển thị khi mất kết nối Internet hoặc khi nguồn ảnh thay đổi.
-- Các liên kết “Xem chi tiết” hiện trỏ tới các trang bên ngoài và chưa dẫn tới trang chi tiết riêng cho từng dự án.
+- Form liên hệ hiện chỉ hiển thị thông báo “Tính năng đang phát triển”, chưa gửi dữ liệu tới backend.
+- Ảnh minh họa dự án và font/icon được tải từ domain bên ngoài, nên phụ thuộc kết nối Internet.
+- Chưa có pipeline lint/CI hoặc báo cáo Lighthouse tự động trong repository.
+- Hỗ trợ `:has()`, `dialog` và một số animation phụ thuộc trình duyệt hiện đại.

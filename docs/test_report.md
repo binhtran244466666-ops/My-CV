@@ -1,134 +1,83 @@
 # Báo cáo kiểm thử phần mềm — My CV
 
-## 1. Tiêu đề báo cáo & Thông tin chung
+## 1. Thông tin chung
 
 | Thông tin | Chi tiết |
 |---|---|
 | Tên dự án | My CV — Portfolio cá nhân |
-| Phiên bản đánh giá | v1.0.0 |
-| Ngày kiểm thử | 05/11/2026 |
+| Phiên bản đánh giá | v1.1.0 |
+| Ngày kiểm thử | 08/11/2026 |
+| Phạm vi | HTML, CSS, responsive, tương tác không JavaScript runtime và tài liệu bàn giao |
+| Môi trường | Máy chủ Python cục bộ, trình duyệt Chromium, viewport 390×844, 768×1024 và 1440×900 |
+| URL kiểm thử | `http://127.0.0.1:8000/index.html` |
 | Người thực hiện | QA/QC Engineer |
-| Người đánh giá | Chưa chỉ định |
-| Phạm vi | Kiểm tra mã nguồn, tài liệu, cấu trúc website tĩnh và mức độ sẵn sàng bàn giao |
-| Môi trường dự kiến | Trình duyệt hiện đại trên desktop/tablet/mobile; máy chủ tĩnh Python hoặc Nginx |
-| Phương pháp | Review tĩnh kết hợp checklist đối chiếu yêu cầu và kiểm tra minh chứng trong repository |
 
-### Quy ước trạng thái
+### Quy ước
 
-- **Đạt:** Đã đáp ứng yêu cầu hoặc có minh chứng phù hợp.
-- **Chưa đạt:** Chưa đáp ứng yêu cầu hoặc phát hiện lỗi cần xử lý trước khi bàn giao.
-- **Cần cải thiện:** Có triển khai nhưng còn thiếu, chưa đủ minh chứng hoặc còn rủi ro cần theo dõi.
+- **Đạt:** Đã kiểm tra và có kết quả phù hợp.
+- **Cần cải thiện:** Có triển khai nhưng còn giới hạn hoặc chưa có kiểm thử tự động đầy đủ.
 
-## 2. Bảng tổng quan trạng thái
+## 2. Tổng quan kết quả
 
-| # | Nhóm tiêu chí | Trạng thái | Tóm tắt |
+| # | Nhóm tiêu chí | Trạng thái | Kết quả |
 |---:|---|---|---|
-| 1 | Tính đúng đắn và mức độ đáp ứng yêu cầu chức năng | Đạt | Các khu vực CV, điều hướng nội bộ và nội dung chính đã được triển khai. |
-| 2 | Giao diện, trải nghiệm người dùng và khả năng tương thích | Cần cải thiện | Có responsive bằng CSS, nhưng cần kiểm thử trực tiếp trên nhiều trình duyệt/kích thước màn hình. |
-| 3 | Khả năng vận hành, xử lý lỗi và hiệu năng cơ bản | Cần cải thiện | Website tĩnh, ít điểm lỗi; chưa có kết quả đo hiệu năng hoặc kiểm thử lỗi đầy đủ. |
-| 4 | Bảo mật, quản lý cấu hình và dữ liệu | Đạt | Không có backend, cơ sở dữ liệu hoặc thông tin bí mật trong cấu hình; vẫn cần rà soát liên kết bên ngoài. |
-| 5 | Chất lượng mã nguồn, cấu trúc repository và tài liệu bàn giao | Cần cải thiện | Cấu trúc đơn giản, có README và release note; cần bổ sung kiểm tra tự động và chuẩn hóa tên file báo cáo. |
-| 6 | Khả năng triển khai, kiểm thử và cung cấp minh chứng | Cần cải thiện | Có hướng dẫn Python/Docker/Nginx nhưng chưa có biên bản chạy thử, ảnh chụp hoặc kết quả test tự động. |
+| 1 | Cấu trúc và nội dung chính | Đạt | Trang có 4 section chính, header, footer, điều hướng nội bộ và metadata cơ bản. |
+| 2 | Tương tác HTML/CSS | Đạt | Theme, lọc kỹ năng, chi tiết dự án, so sánh và form được triển khai không cần JavaScript runtime. |
+| 3 | Responsive và hiển thị | Đạt | Đã chụp lại ảnh full-page ở 3 viewport mục tiêu từ bản mã nguồn hiện tại. |
+| 4 | Liên hệ và validation | Đạt có điều kiện | Form có 5 trường bắt buộc và validation native; chưa có backend gửi dữ liệu. |
+| 5 | Tài nguyên bên ngoài | Cần cải thiện | Ảnh dự án, Google Fonts và Font Awesome phụ thuộc Internet. |
+| 6 | Tự động hóa chất lượng | Cần cải thiện | Chưa có lint, CI, Lighthouse hoặc bộ test hồi quy tự động trong repository. |
 
-**Kết luận sơ bộ:** Có thể bàn giao ở mức bản demo/website tĩnh sau khi xác nhận thủ công các liên kết, hình ảnh và hiển thị trên môi trường mục tiêu. Chưa nên xem là bản nghiệm thu hoàn toàn nếu chưa bổ sung minh chứng kiểm thử trình duyệt và hiệu năng.
+**Kết luận:** Bản v1.1.0 đạt yêu cầu cho demo/bàn giao website tĩnh. Cần xác nhận thêm trên các trình duyệt mục tiêu và bổ sung backend nếu form cần gửi dữ liệu thật.
 
-## 3. Nội dung kiểm tra chi tiết
+## 3. Ca kiểm thử chức năng
 
-### 3.1. Tính đúng đắn và mức độ đáp ứng yêu cầu chức năng
+| ID | Ca kiểm thử | Kết quả | Minh chứng |
+|---|---|---|---|
+| TC-01 | Mở trang qua máy chủ tĩnh | Đạt | HTTP status `200`; tiêu đề `Trần Đăng Bình · Frontend Developer`. |
+| TC-02 | Điều hướng tới Giới thiệu, Kỹ năng, Dự án, Liên hệ | Đạt | Các liên kết `#about`, `#skills`, `#projects`, `#contact` có trong `index.html`. |
+| TC-03 | Chuyển ngày/đêm | Đạt | Checkbox `#theme-switch` đổi trạng thái và bộ màu hiển thị bằng CSS. |
+| TC-04 | Chọn kỹ năng JavaScript | Đạt | Label `sk-js` được chọn; các thẻ dự án JavaScript được làm nổi bật. |
+| TC-05 | Khôi phục toàn bộ dự án | Đạt | Label `sk-none` đưa bộ lọc về trạng thái “Hiện tất cả”. |
+| TC-06 | Mở chi tiết dự án | Đạt | Liên kết `#project-1` mở đúng hộp chi tiết; có liên kết đóng về `#projects`. |
+| TC-07 | Mở form liên hệ nhanh | Đạt | Panel form hiển thị khi chọn `#quick-message-toggle`. |
+| TC-08 | Validation form rỗng/không hợp lệ | Đạt | Trình duyệt chặn gửi khi thiếu trường bắt buộc hoặc email không hợp lệ. |
+| TC-09 | Validation form hợp lệ | Đạt | Form hợp lệ sau khi điền tên, email, chủ đề, nội dung và checkbox đồng ý. |
+| TC-10 | Hình ảnh và avatar | Đạt có điều kiện | Avatar cục bộ tải được; ảnh dự án cần Internet do dùng Unsplash. |
 
-| Hạng mục kiểm tra | Trạng thái | Ghi chú/Minh chứng cụ thể |
+## 4. Kiểm thử responsive và minh chứng
+
+| Viewport | Trạng thái | Ảnh minh chứng |
 |---|---|---|
-| Hiển thị thông tin giới thiệu cá nhân và vai trò nghề nghiệp | Đạt | Có phần Hero với tên, vai trò Frontend Developer và mô tả trong `index.html`. |
-| Điều hướng tới các phần Giới thiệu, Kỹ năng, Dự án và Liên hệ | Đạt | Thanh điều hướng sử dụng liên kết nội bộ `#about`, `#skills`, `#projects`, `#contact`. |
-| Hiển thị danh sách kỹ năng | Đạt | Có HTML5, CSS3/Flexbox/Grid, JavaScript, Responsive Design, Git/GitHub và Figma. |
-| Hiển thị bốn dự án tiêu biểu | Đạt | Có Landing Page Sản Phẩm, Todo List, Weather Dashboard và Blog Cá Nhân. |
-| Nút “Xem dự án” và “Liên hệ tôi” hoạt động theo đúng mục tiêu | Đạt | Liên kết tới khu vực `#projects` và `#contact`. |
-| Hiển thị thông tin liên hệ | Đạt | Có email, GitHub và Facebook ở phần Liên hệ. |
-| Chức năng tương tác nâng cao bằng JavaScript | Cần cải thiện | README xác nhận chưa có tệp JavaScript riêng; không có form gửi dữ liệu hoặc xử lý động. |
-| Liên kết “Xem chi tiết” dẫn tới trang dự án tương ứng | Cần cải thiện | Các liên kết hiện trỏ tới trang bên ngoài, chưa có trang chi tiết riêng cho từng dự án. |
+| Mobile 390×844 | Đạt | [responsive-mobile.png](./screenshots/responsive-mobile.png) |
+| Tablet 768×1024 | Đạt | [responsive-tablet.png](./screenshots/responsive-tablet.png) |
+| Desktop 1440×900 | Đạt | [responsive-desktop.png](./screenshots/responsive-desktop.png) |
 
-### 3.2. Giao diện, trải nghiệm người dùng và khả năng tương thích
+Đã xác nhận các điểm chính: header và navigation hiển thị, hero có avatar, nút CTA không mất nội dung, các chip kỹ năng hiển thị, thẻ dự án có thể cuộn ngang trên mobile và bố cục chuyển sang nhiều cột ở viewport lớn. Ảnh được chụp full-page sau khi tắt animation/transition và ẩn scrollbar để minh chứng rõ ràng, ổn định.
 
-| Hạng mục kiểm tra | Trạng thái | Ghi chú/Minh chứng cụ thể |
+## 5. Kiểm tra mã nguồn và khả năng triển khai
+
+| Hạng mục | Trạng thái | Ghi chú |
 |---|---|---|
-| Bố cục responsive trên mobile, tablet và desktop | Đạt | `styles.css` áp dụng mobile-first, Flexbox/Grid và media query theo breakpoint. Đã chụp từ website chạy cục bộ: [mobile 390×844](./screenshots/responsive-mobile.png), [tablet 768×1024](./screenshots/responsive-tablet.png), [desktop 1440×900](./screenshots/responsive-desktop.png). |
-| Thanh điều hướng có thể xuống dòng trên màn hình hẹp | Đạt | `.header-inner` và `.nav-list` sử dụng `flex-wrap: wrap`. |
-| Hình ảnh không gây tràn khung | Đạt | Quy tắc `img { max-width: 100%; height: auto; }` và `body { overflow-x: hidden; }`. |
-| Điều hướng cuộn mượt | Đạt | `html { scroll-behavior: smooth; }`. |
-| Khả năng đọc và tương phản màu | Cần cải thiện | Bảng màu hiện tại có nhiều màu tương phản mạnh; cần xác nhận bằng công cụ WCAG/kiểm tra trực quan trên thiết bị thực. |
-| Khả năng truy cập cơ bản | Cần cải thiện | Có `lang="vi"`, nhãn điều hướng và `alt` cho ảnh; cần kiểm tra focus keyboard, thứ tự heading và độ tương phản đầy đủ. |
-| Tương thích Chrome, Edge, Firefox và Safari | Cần cải thiện | README nêu trình duyệt mục tiêu nhưng chưa có biên bản kiểm thử trên từng trình duyệt. |
-| Hiển thị khi mất Internet | Cần cải thiện | Ảnh dự án dùng URL bên ngoài nên có thể không hiển thị khi không có mạng hoặc nguồn ảnh thay đổi. |
+| HTML semantic | Đạt | Có `header`, `nav`, `main`, `section`, `article`, `footer`, `dialog`. |
+| Metadata và accessibility cơ bản | Đạt có điều kiện | Có `lang`, description, label, alt và focus style; cần audit WCAG đầy đủ. |
+| CSS responsive | Đạt | Có custom properties, Flexbox, Grid, breakpoint và reduced-motion. |
+| Dependency/runtime | Đạt | Không có `package.json`, backend hoặc JavaScript runtime. |
+| Triển khai tĩnh | Đạt | Có thể dùng Python, Nginx/Docker, GitHub Pages, Netlify hoặc Vercel. |
+| Hiệu năng | Cần cải thiện | Chưa có số đo Lighthouse/Core Web Vitals; ảnh ngoài có thể ảnh hưởng thời gian tải. |
+| Bảo mật | Đạt có điều kiện | Không có dữ liệu nhạy cảm hoặc backend; cần cấu hình HTTPS/security headers ở môi trường triển khai. |
 
-### 3.3. Khả năng vận hành, xử lý lỗi và hiệu năng cơ bản
+## 6. Vấn đề và đề xuất
 
-| Hạng mục kiểm tra | Trạng thái | Ghi chú/Minh chứng cụ thể |
-|---|---|---|
-| Mở trang trực tiếp bằng `index.html` | Đạt | README có hướng dẫn mở file trực tiếp trên Windows, macOS và Linux. |
-| Chạy bằng máy chủ tĩnh Python | Đạt | Có hướng dẫn `python -m http.server 8000`. |
-| Chạy bằng Nginx/Docker | Đạt | README có lệnh chạy image `nginx:alpine` và ánh xạ cổng. |
-| Hiển thị khi thiếu tài nguyên cục bộ | Cần cải thiện | Chưa có kiểm thử lỗi khi `styles.css` hoặc `avatar.jpg` bị thiếu/đổi đường dẫn. |
-| Xử lý lỗi runtime | Đạt | Không có JavaScript hoặc backend nên không phát sinh luồng lỗi runtime phức tạp trong phạm vi hiện tại. |
-| Thời gian tải và kích thước tài nguyên | Cần cải thiện | Chưa có số liệu Lighthouse, WebPageTest hoặc đo tải trên mạng chậm. |
-| Tối ưu ảnh và tài nguyên bên ngoài | Cần cải thiện | Một số ảnh lấy từ URL bên ngoài; cần cân nhắc nén ảnh, lazy loading hoặc lưu bản sao cục bộ. |
+1. Tích hợp endpoint/backend nếu form liên hệ cần gửi và lưu dữ liệu.
+2. Lưu bản sao cục bộ hoặc thêm fallback cho ảnh dự án, font và icon bên ngoài.
+3. Chạy kiểm tra WCAG, Lighthouse và thử nghiệm trên Chrome, Edge, Firefox, Safari.
+4. Bổ sung lint/CI và checklist hồi quy cho các thay đổi HTML/CSS tiếp theo.
 
-### 3.4. Bảo mật, quản lý cấu hình và dữ liệu
+## 7. Tiêu chí nghiệm thu đề xuất
 
-| Hạng mục kiểm tra | Trạng thái | Ghi chú/Minh chứng cụ thể |
-|---|---|---|
-| Không chứa thông tin xác thực hoặc khóa bí mật | Đạt | Website không có `.env`, backend, cơ sở dữ liệu hoặc thông tin đăng nhập. |
-| Dữ liệu người dùng và dữ liệu nhạy cảm | Đạt | Không thu thập hoặc lưu trữ dữ liệu người dùng trong phiên bản hiện tại. |
-| Quản lý cấu hình | Đạt | Nội dung và giao diện được cấu hình trực tiếp trong `index.html` và `assets/css/styles.css`; phù hợp với website tĩnh. |
-| Liên kết tới tài nguyên bên ngoài | Cần cải thiện | Cần rà soát tính tin cậy, tính ổn định và chính sách của các domain ảnh/liên kết dự án bên ngoài. |
-| Bảo vệ khi triển khai HTTPS | Cần cải thiện | HTTPS phụ thuộc nền tảng triển khai; repository chưa cung cấp cấu hình bắt buộc HTTPS hoặc security headers. |
-| Kiểm tra lỗ hổng phụ thuộc | Đạt | Không có `package.json` hoặc thư viện runtime cần cài đặt; vẫn cần rà soát image Nginx khi triển khai Docker. |
-
-### 3.5. Chất lượng mã nguồn, cấu trúc repository và tài liệu bàn giao
-
-| Hạng mục kiểm tra | Trạng thái | Ghi chú/Minh chứng cụ thể |
-|---|---|---|
-| Cấu trúc repository rõ ràng | Đạt | Có `index.html`, `assets/css/styles.css`, `assets/img/avatar.jpg` và thư mục `docs`. |
-| HTML semantic và metadata cơ bản | Đạt | Có `header`, `nav`, `main`, `section`, `article`, `footer`, `lang`, `description` và `author`. |
-| CSS có tổ chức và tái sử dụng | Đạt | Có custom properties, quy ước spacing, container, layout Flexbox/Grid và breakpoint. |
-| Tính nhất quán nội dung thương hiệu | Cần cải thiện | Cần rà soát lại nội dung hiển thị trong header và thông tin cá nhân trước khi bàn giao chính thức. |
-| Tài liệu cài đặt/chạy/triển khai | Đạt | `README.md` có hướng dẫn cho Windows, macOS, Linux, Python và Docker/Nginx. |
-| Tài liệu phát hành | Đạt | `docs/RELEASENOTE.md` ghi nhận phiên bản v1.0.0, chức năng, lỗi đã sửa và hạn chế. |
-| Nhật ký thay đổi do AI | Đạt | `docs/AI_LOG.md` ghi lại thay đổi tài liệu phát hành. |
-| Kiểm tra lint/format tự động | Cần cải thiện | Chưa có cấu hình hoặc kết quả chạy HTML/CSS validator, formatter hay CI trong repository. |
-
-### 3.6. Khả năng triển khai, kiểm thử và cung cấp minh chứng
-
-| Hạng mục kiểm tra | Trạng thái | Ghi chú/Minh chứng cụ thể |
-|---|---|---|
-| Triển khai dạng website tĩnh | Đạt | Có thể triển khai lên GitHub Pages, Netlify, Vercel, Nginx hoặc máy chủ tĩnh khác. |
-| Tài liệu triển khai có thể thực hiện được | Đạt | README cung cấp lệnh chạy Python và Docker/Nginx, bao gồm ví dụ cho Windows. |
-| Kiểm thử trên môi trường sạch | Cần cải thiện | Chưa có log hoặc biên bản xác nhận clone repository và chạy từ đầu trên máy sạch. |
-| Bộ test hồi quy | Cần cải thiện | Chưa có test case tự động; cần kiểm tra lại navigation, ảnh, liên kết và responsive sau mỗi thay đổi. |
-| Minh chứng ảnh chụp/video kết quả | Đạt | Đã lưu ảnh chụp thực tế tại `docs/screenshots/`: [responsive-mobile.png](./screenshots/responsive-mobile.png), [responsive-tablet.png](./screenshots/responsive-tablet.png) và [responsive-desktop.png](./screenshots/responsive-desktop.png). |
-| Minh chứng hiệu năng và accessibility | Cần cải thiện | Chưa có báo cáo Lighthouse, điểm Core Web Vitals hoặc kết quả kiểm tra WCAG. |
-| Quy trình xử lý lỗi sau bàn giao | Cần cải thiện | Cần thống nhất nơi ghi nhận issue, mức độ ưu tiên và tiêu chí đóng lỗi. |
-
-## 4. Đánh giá tổng kết & Đề xuất
-
-### 4.1. Nhận định chung
-
-Website đã đáp ứng tốt phạm vi cốt lõi của một portfolio CV tĩnh: nội dung chính đầy đủ, điều hướng nội bộ hoạt động, cấu trúc HTML/CSS rõ ràng và có hướng dẫn triển khai. Sản phẩm phù hợp để bàn giao bản demo hoặc bản phát hành nội bộ.
-
-Mức độ sẵn sàng bàn giao hiện tại: **Có điều kiện — cần xác nhận bổ sung trước nghiệm thu chính thức**.
-
-### 4.2. Vấn đề cần khắc phục trước khi bàn giao chính thức
-
-1. Kiểm tra và xác nhận lại toàn bộ nội dung cá nhân, tiêu đề thương hiệu và thông tin liên hệ.
-2. Kiểm tra tất cả liên kết “Xem chi tiết”, email, GitHub và Facebook; thay các liên kết mẫu bằng URL chính thức nếu cần.
-3. Kiểm thử thủ công trên Chrome, Edge, Firefox và Safari ở các kích thước mobile, tablet và desktop.
-4. Chạy Lighthouse hoặc công cụ tương đương để đo Performance, Accessibility, Best Practices và SEO.
-5. Cân nhắc lưu ảnh dự án cục bộ hoặc bổ sung phương án dự phòng khi tài nguyên bên ngoài không khả dụng.
-6. Bổ sung checklist hồi quy, ảnh chụp minh chứng và kết quả kiểm thử vào hồ sơ bàn giao.
-
-### 4.3. Tiêu chí chấp nhận đề xuất
-
-- Không còn lỗi chức năng mức nghiêm trọng đối với điều hướng, hiển thị nội dung và liên kết liên hệ.
-- Không xuất hiện cuộn ngang hoặc vỡ bố cục ở các viewport mục tiêu.
-- Tất cả tài nguyên bắt buộc tải thành công trên môi trường triển khai thực tế.
-- Nội dung cá nhân và URL bên ngoài được chủ sở hữu xác nhận.
-- Có minh chứng kiểm thử trình duyệt, responsive, accessibility và hiệu năng cơ bản.
+- Không có lỗi nghiêm trọng ở navigation, theme, lọc kỹ năng, chi tiết dự án và form validation.
+- Không có vỡ bố cục hoặc cuộn ngang ngoài chủ đích của danh sách dự án trên mobile.
+- Avatar, CSS và HTML tải thành công trên môi trường triển khai.
+- Nội dung cá nhân, liên kết liên hệ và tài nguyên bên ngoài được chủ sở hữu xác nhận.
+- Có kết quả kiểm thử trình duyệt, responsive, accessibility và hiệu năng trước khi phát hành chính thức.

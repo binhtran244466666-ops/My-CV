@@ -32,7 +32,7 @@ My-CV/
 │   ├── css/
 │   │   └── styles.css
 │   └── img/
-│       └── avatar.jpg
+│       └── AVATAR.png
 └── BAOCAO-A2.1.docx
 ```
 
@@ -85,13 +85,13 @@ Không có tệp `.env` hoặc cấu hình backend. Có thể tùy chỉnh trự
 
 - Nội dung, tiêu đề trang, mô tả SEO và thông tin tác giả trong `index.html`.
 - Màu sắc, font chữ, khoảng cách và breakpoint trong `assets/css/styles.css`.
-- Ảnh đại diện tại `assets/img/avatar.jpg`.
+- Ảnh đại diện tại `assets/img/AVATAR.png`.
 - Liên kết dự án, email, GitHub và Facebook trong phần tương ứng của `index.html`.
 
 Khi thay ảnh đại diện, nên giữ đường dẫn tương đối:
 
 ```html
-<img src="./assets/img/avatar.jpg" alt="Ảnh đại diện của Trần Đăng Bình">
+<img src="./assets/img/AVATAR.png" alt="Ảnh đại diện của Trần Đăng Bình">
 ```
 
 ## Chạy thử
