@@ -16,20 +16,16 @@
   <link rel="stylesheet" href="./assets/css/styles.css" />
 </head>
 
-<body class="mode-pro" id="top">
-  <!-- [THÊM] Công tắc ngày/đêm: checkbox ẩn, nút "Ngày/đêm" là label của nó -->
+<body id="top">
+  <!-- Công tắc giao diện sáng/tối thuần CSS -->
   <input type="checkbox" id="theme-switch" class="sr-only" aria-label="Chuyển giao diện sáng/tối" />
 
-  <div id="nav-veil" aria-hidden="true"></div>
-  <div id="theme-wipe" aria-hidden="true"></div>
-  <div id="pointer-spotlight" aria-hidden="true"></div>
-
+  <!-- Thanh tiến độ cuộn trang -->
   <div class="scroll-rail" aria-hidden="true">
     <span class="scroll-rail-fill" id="scroll-rail-fill"></span>
   </div>
 
-  <svg class="connection-layer" id="skill-connections" aria-hidden="true"></svg>
-
+  <!-- Header & Điều hướng -->
   <header class="site-header">
     <div class="container header-inner">
       <a class="brand" href="#top" aria-label="Về đầu trang">
@@ -48,9 +44,10 @@
         </nav>
 
         <div class="header-controls">
-          <!-- [SỬA] button -> label gắn với checkbox #theme-switch; đã bỏ nút Pro -->
           <label class="pill-button" id="theme-toggle" for="theme-switch">
-            <i class="fa-solid fa-sun icon-sun" aria-hidden="true"></i><i class="fa-solid fa-moon icon-moon" aria-hidden="true"></i><span>Ngày/đêm</span>
+            <i class="fa-solid fa-sun icon-sun" aria-hidden="true"></i>
+            <i class="fa-solid fa-moon icon-moon" aria-hidden="true"></i>
+            <span>Ngày/đêm</span>
           </label>
         </div>
       </div>
@@ -58,6 +55,7 @@
   </header>
 
   <main id="main-content">
+    <!-- Giới thiệu / Hero -->
     <section id="about" class="hero">
       <div class="container hero-inner">
         <div class="hero-text">
@@ -74,7 +72,6 @@
           </div>
         </div>
 
-        <!-- [SỬA] thêm sẵn class is-image-ready (trước đây JavaScript thêm) -->
         <figure class="hero-avatar is-image-ready" id="hero-avatar">
           <span class="avatar-led" style="--i:0" aria-hidden="true"></span>
           <span class="avatar-led" style="--i:1" aria-hidden="true"></span>
@@ -93,39 +90,64 @@
       </div>
     </section>
 
+    <!-- Kỹ năng chuyên môn -->
     <section id="skills" class="section">
       <div class="container">
         <h2 class="section-title">Kỹ năng chuyên môn</h2>
         <p class="section-sub">Chọn kỹ năng để làm nổi bật các dự án liên quan.</p>
         <ul class="skill-grid">
-          <!-- [SỬA] button -> label + radio ẩn (radio đứng sau label để giữ nguyên vị trí :nth-child cũ) -->
-          <li><label class="skill-chip" for="sk-html5" data-skill="HTML5"><i class="fa-brands fa-html5"></i> HTML5</label><input class="skill-radio sr-only" type="radio" name="skill" id="sk-html5" /></li>
-          <li><label class="skill-chip" for="sk-css" data-skill="CSS"><i class="fa-brands fa-css3-alt"></i> CSS3 / Flexbox / Grid</label><input class="skill-radio sr-only" type="radio" name="skill" id="sk-css" /></li>
-          <li><label class="skill-chip" for="sk-js" data-skill="JavaScript"><i class="fa-brands fa-js"></i> JavaScript (ES6+)</label><input class="skill-radio sr-only" type="radio" name="skill" id="sk-js" /></li>
-          <li><label class="skill-chip" for="sk-responsive" data-skill="Responsive"><i class="fa-solid fa-mobile-screen"></i> Responsive Design</label><input class="skill-radio sr-only" type="radio" name="skill" id="sk-responsive" /></li>
-          <li><label class="skill-chip" for="sk-git" data-skill="Git"><i class="fa-brands fa-github"></i> Git &amp; GitHub</label><input class="skill-radio sr-only" type="radio" name="skill" id="sk-git" /></li>
-          <li><label class="skill-chip" for="sk-figma" data-skill="Figma"><i class="fa-brands fa-figma"></i> Figma / Wireframe</label><input class="skill-radio sr-only" type="radio" name="skill" id="sk-figma" /></li>
-          <!-- [THÊM] chip bỏ chọn (chỉ hiện khi đã chọn một kỹ năng) -->
-          <li class="skill-reset"><label class="skill-chip" for="sk-none"><i class="fa-solid fa-rotate-left"></i> Hiện tất cả</label><input class="skill-none sr-only" type="radio" name="skill" id="sk-none" checked /></li>
+          <li>
+            <label class="skill-chip" for="sk-html5" data-skill="HTML5"><i class="fa-brands fa-html5"></i> HTML5</label>
+            <input class="skill-radio sr-only" type="radio" name="skill" id="sk-html5" />
+          </li>
+          <li>
+            <label class="skill-chip" for="sk-css" data-skill="CSS"><i class="fa-brands fa-css3-alt"></i> CSS3 / Flexbox / Grid</label>
+            <input class="skill-radio sr-only" type="radio" name="skill" id="sk-css" />
+          </li>
+          <li>
+            <label class="skill-chip" for="sk-js" data-skill="JavaScript"><i class="fa-brands fa-js"></i> JavaScript (ES6+)</label>
+            <input class="skill-radio sr-only" type="radio" name="skill" id="sk-js" />
+          </li>
+          <li>
+            <label class="skill-chip" for="sk-responsive" data-skill="Responsive"><i class="fa-solid fa-mobile-screen"></i> Responsive Design</label>
+            <input class="skill-radio sr-only" type="radio" name="skill" id="sk-responsive" />
+          </li>
+          <li>
+            <label class="skill-chip" for="sk-git" data-skill="Git"><i class="fa-brands fa-github"></i> Git &amp; GitHub</label>
+            <input class="skill-radio sr-only" type="radio" name="skill" id="sk-git" />
+          </li>
+          <li>
+            <label class="skill-chip" for="sk-figma" data-skill="Figma"><i class="fa-brands fa-figma"></i> Figma / Wireframe</label>
+            <input class="skill-radio sr-only" type="radio" name="skill" id="sk-figma" />
+          </li>
+          <li class="skill-reset">
+            <label class="skill-chip" for="sk-none"><i class="fa-solid fa-rotate-left"></i> Hiện tất cả</label>
+            <input class="skill-none sr-only" type="radio" name="skill" id="sk-none" checked />
+          </li>
         </ul>
       </div>
     </section>
 
+    <!-- Dự án tiêu biểu -->
     <section id="projects" class="section section-muted">
       <div class="container">
         <h2 class="section-title">Dự án tiêu biểu</h2>
         <p class="section-sub">Một số sản phẩm nổi bật tôi đã hoàn thành.</p>
 
         <div class="project-grid" id="project-grid">
-          <!-- [SỬA ở 4 thẻ] thêm class t-... (kỹ năng liên quan), chữ tiêu đề bọc sẵn từng span,
-               nút "Xem chi tiết" thành link #project-N, nút so sánh thành checkbox + label -->
           <article class="project-card t-html5 t-css t-responsive" data-tech="HTML5 CSS SEO Responsive" data-title="Landing Page sản phẩm" data-description="Trang giới thiệu sản phẩm tương thích đa thiết bị, tối ưu tốc độ và chuẩn SEO.">
             <span class="card-indicator" aria-hidden="true"></span>
             <img class="card-media" src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=600&q=80" alt="Landing Page sản phẩm" />
             <div class="card-body">
-              <h3 class="card-title" aria-label="Landing Page sản phẩm"><span class="dance-letter" style="--letter-index:0" aria-hidden="true">L</span><span class="dance-letter" style="--letter-index:1" aria-hidden="true">a</span><span class="dance-letter" style="--letter-index:2" aria-hidden="true">n</span><span class="dance-letter" style="--letter-index:3" aria-hidden="true">d</span><span class="dance-letter" style="--letter-index:4" aria-hidden="true">i</span><span class="dance-letter" style="--letter-index:5" aria-hidden="true">n</span><span class="dance-letter" style="--letter-index:6" aria-hidden="true">g</span><span class="dance-letter" style="--letter-index:7" aria-hidden="true">&nbsp;</span><span class="dance-letter" style="--letter-index:8" aria-hidden="true">P</span><span class="dance-letter" style="--letter-index:9" aria-hidden="true">a</span><span class="dance-letter" style="--letter-index:10" aria-hidden="true">g</span><span class="dance-letter" style="--letter-index:11" aria-hidden="true">e</span><span class="dance-letter" style="--letter-index:12" aria-hidden="true">&nbsp;</span><span class="dance-letter" style="--letter-index:13" aria-hidden="true">s</span><span class="dance-letter" style="--letter-index:14" aria-hidden="true">ả</span><span class="dance-letter" style="--letter-index:15" aria-hidden="true">n</span><span class="dance-letter" style="--letter-index:16" aria-hidden="true">&nbsp;</span><span class="dance-letter" style="--letter-index:17" aria-hidden="true">p</span><span class="dance-letter" style="--letter-index:18" aria-hidden="true">h</span><span class="dance-letter" style="--letter-index:19" aria-hidden="true">ẩ</span><span class="dance-letter" style="--letter-index:20" aria-hidden="true">m</span></h3>
+              <h3 class="card-title" aria-label="Landing Page sản phẩm">
+                <span class="dance-letter" style="--letter-index:0" aria-hidden="true">L</span><span class="dance-letter" style="--letter-index:1" aria-hidden="true">a</span><span class="dance-letter" style="--letter-index:2" aria-hidden="true">n</span><span class="dance-letter" style="--letter-index:3" aria-hidden="true">d</span><span class="dance-letter" style="--letter-index:4" aria-hidden="true">i</span><span class="dance-letter" style="--letter-index:5" aria-hidden="true">n</span><span class="dance-letter" style="--letter-index:6" aria-hidden="true">g</span><span class="dance-letter" style="--letter-index:7" aria-hidden="true">&nbsp;</span><span class="dance-letter" style="--letter-index:8" aria-hidden="true">P</span><span class="dance-letter" style="--letter-index:9" aria-hidden="true">a</span><span class="dance-letter" style="--letter-index:10" aria-hidden="true">g</span><span class="dance-letter" style="--letter-index:11" aria-hidden="true">e</span><span class="dance-letter" style="--letter-index:12" aria-hidden="true">&nbsp;</span><span class="dance-letter" style="--letter-index:13" aria-hidden="true">s</span><span class="dance-letter" style="--letter-index:14" aria-hidden="true">ả</span><span class="dance-letter" style="--letter-index:15" aria-hidden="true">n</span><span class="dance-letter" style="--letter-index:16" aria-hidden="true">&nbsp;</span><span class="dance-letter" style="--letter-index:17" aria-hidden="true">p</span><span class="dance-letter" style="--letter-index:18" aria-hidden="true">h</span><span class="dance-letter" style="--letter-index:19" aria-hidden="true">ẩ</span><span class="dance-letter" style="--letter-index:20" aria-hidden="true">m</span>
+              </h3>
               <p class="card-desc">Trang giới thiệu sản phẩm tương thích đa thiết bị, tối ưu tốc độ và chuẩn SEO.</p>
-              <ul class="tag-list"><li>HTML5</li><li>CSS Grid</li><li>SEO</li></ul>
+              <ul class="tag-list">
+                <li>HTML5</li>
+                <li>CSS Grid</li>
+                <li>SEO</li>
+              </ul>
               <a class="card-link project-open" href="#project-1">Xem chi tiết <i class="fa-solid fa-arrow-right"></i></a>
               <input class="cmp-check sr-only" type="checkbox" id="cmp-1" form="compare-form" />
               <label class="compare-button" for="cmp-1"><span class="cmp-off">+ Thêm vào so sánh</span><span class="cmp-on">Đã chọn</span></label>
@@ -136,9 +158,15 @@
             <span class="card-indicator" aria-hidden="true"></span>
             <img class="card-media" src="https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?auto=format&fit=crop&w=600&q=80" alt="Ứng dụng Todo List" />
             <div class="card-body">
-              <h3 class="card-title" aria-label="Ứng dụng Todo List"><span class="dance-letter" style="--letter-index:0" aria-hidden="true">Ứ</span><span class="dance-letter" style="--letter-index:1" aria-hidden="true">n</span><span class="dance-letter" style="--letter-index:2" aria-hidden="true">g</span><span class="dance-letter" style="--letter-index:3" aria-hidden="true">&nbsp;</span><span class="dance-letter" style="--letter-index:4" aria-hidden="true">d</span><span class="dance-letter" style="--letter-index:5" aria-hidden="true">ụ</span><span class="dance-letter" style="--letter-index:6" aria-hidden="true">n</span><span class="dance-letter" style="--letter-index:7" aria-hidden="true">g</span><span class="dance-letter" style="--letter-index:8" aria-hidden="true">&nbsp;</span><span class="dance-letter" style="--letter-index:9" aria-hidden="true">T</span><span class="dance-letter" style="--letter-index:10" aria-hidden="true">o</span><span class="dance-letter" style="--letter-index:11" aria-hidden="true">d</span><span class="dance-letter" style="--letter-index:12" aria-hidden="true">o</span><span class="dance-letter" style="--letter-index:13" aria-hidden="true">&nbsp;</span><span class="dance-letter" style="--letter-index:14" aria-hidden="true">L</span><span class="dance-letter" style="--letter-index:15" aria-hidden="true">i</span><span class="dance-letter" style="--letter-index:16" aria-hidden="true">s</span><span class="dance-letter" style="--letter-index:17" aria-hidden="true">t</span></h3>
+              <h3 class="card-title" aria-label="Ứng dụng Todo List">
+                <span class="dance-letter" style="--letter-index:0" aria-hidden="true">Ứ</span><span class="dance-letter" style="--letter-index:1" aria-hidden="true">n</span><span class="dance-letter" style="--letter-index:2" aria-hidden="true">g</span><span class="dance-letter" style="--letter-index:3" aria-hidden="true">&nbsp;</span><span class="dance-letter" style="--letter-index:4" aria-hidden="true">d</span><span class="dance-letter" style="--letter-index:5" aria-hidden="true">ụ</span><span class="dance-letter" style="--letter-index:6" aria-hidden="true">n</span><span class="dance-letter" style="--letter-index:7" aria-hidden="true">g</span><span class="dance-letter" style="--letter-index:8" aria-hidden="true">&nbsp;</span><span class="dance-letter" style="--letter-index:9" aria-hidden="true">T</span><span class="dance-letter" style="--letter-index:10" aria-hidden="true">o</span><span class="dance-letter" style="--letter-index:11" aria-hidden="true">d</span><span class="dance-letter" style="--letter-index:12" aria-hidden="true">o</span><span class="dance-letter" style="--letter-index:13" aria-hidden="true">&nbsp;</span><span class="dance-letter" style="--letter-index:14" aria-hidden="true">L</span><span class="dance-letter" style="--letter-index:15" aria-hidden="true">i</span><span class="dance-letter" style="--letter-index:16" aria-hidden="true">s</span><span class="dance-letter" style="--letter-index:17" aria-hidden="true">t</span>
+              </h3>
               <p class="card-desc">Quản lý công việc thông minh với LocalStorage và giao diện tối giản.</p>
-              <ul class="tag-list"><li>JavaScript</li><li>LocalStorage</li><li>Flexbox</li></ul>
+              <ul class="tag-list">
+                <li>JavaScript</li>
+                <li>LocalStorage</li>
+                <li>Flexbox</li>
+              </ul>
               <a class="card-link project-open" href="#project-2">Xem chi tiết <i class="fa-solid fa-arrow-right"></i></a>
               <input class="cmp-check sr-only" type="checkbox" id="cmp-2" form="compare-form" />
               <label class="compare-button" for="cmp-2"><span class="cmp-off">+ Thêm vào so sánh</span><span class="cmp-on">Đã chọn</span></label>
@@ -149,9 +177,15 @@
             <span class="card-indicator" aria-hidden="true"></span>
             <img class="card-media" src="https://images.unsplash.com/photo-1592210454359-9043f067919b?auto=format&fit=crop&w=600&q=80" alt="Weather Dashboard" />
             <div class="card-body">
-              <h3 class="card-title" aria-label="Weather Dashboard"><span class="dance-letter" style="--letter-index:0" aria-hidden="true">W</span><span class="dance-letter" style="--letter-index:1" aria-hidden="true">e</span><span class="dance-letter" style="--letter-index:2" aria-hidden="true">a</span><span class="dance-letter" style="--letter-index:3" aria-hidden="true">t</span><span class="dance-letter" style="--letter-index:4" aria-hidden="true">h</span><span class="dance-letter" style="--letter-index:5" aria-hidden="true">e</span><span class="dance-letter" style="--letter-index:6" aria-hidden="true">r</span><span class="dance-letter" style="--letter-index:7" aria-hidden="true">&nbsp;</span><span class="dance-letter" style="--letter-index:8" aria-hidden="true">D</span><span class="dance-letter" style="--letter-index:9" aria-hidden="true">a</span><span class="dance-letter" style="--letter-index:10" aria-hidden="true">s</span><span class="dance-letter" style="--letter-index:11" aria-hidden="true">h</span><span class="dance-letter" style="--letter-index:12" aria-hidden="true">b</span><span class="dance-letter" style="--letter-index:13" aria-hidden="true">o</span><span class="dance-letter" style="--letter-index:14" aria-hidden="true">a</span><span class="dance-letter" style="--letter-index:15" aria-hidden="true">r</span><span class="dance-letter" style="--letter-index:16" aria-hidden="true">d</span></h3>
+              <h3 class="card-title" aria-label="Weather Dashboard">
+                <span class="dance-letter" style="--letter-index:0" aria-hidden="true">W</span><span class="dance-letter" style="--letter-index:1" aria-hidden="true">e</span><span class="dance-letter" style="--letter-index:2" aria-hidden="true">a</span><span class="dance-letter" style="--letter-index:3" aria-hidden="true">t</span><span class="dance-letter" style="--letter-index:4" aria-hidden="true">h</span><span class="dance-letter" style="--letter-index:5" aria-hidden="true">e</span><span class="dance-letter" style="--letter-index:6" aria-hidden="true">r</span><span class="dance-letter" style="--letter-index:7" aria-hidden="true">&nbsp;</span><span class="dance-letter" style="--letter-index:8" aria-hidden="true">D</span><span class="dance-letter" style="--letter-index:9" aria-hidden="true">a</span><span class="dance-letter" style="--letter-index:10" aria-hidden="true">s</span><span class="dance-letter" style="--letter-index:11" aria-hidden="true">h</span><span class="dance-letter" style="--letter-index:12" aria-hidden="true">b</span><span class="dance-letter" style="--letter-index:13" aria-hidden="true">o</span><span class="dance-letter" style="--letter-index:14" aria-hidden="true">a</span><span class="dance-letter" style="--letter-index:15" aria-hidden="true">r</span><span class="dance-letter" style="--letter-index:16" aria-hidden="true">d</span>
+              </h3>
               <p class="card-desc">Bảng điều khiển thời tiết trực quan lấy dữ liệu realtime từ REST API.</p>
-              <ul class="tag-list"><li>Fetch API</li><li>CSS Grid</li><li>Async/Await</li></ul>
+              <ul class="tag-list">
+                <li>Fetch API</li>
+                <li>CSS Grid</li>
+                <li>Async/Await</li>
+              </ul>
               <a class="card-link project-open" href="#project-3">Xem chi tiết <i class="fa-solid fa-arrow-right"></i></a>
               <input class="cmp-check sr-only" type="checkbox" id="cmp-3" form="compare-form" />
               <label class="compare-button" for="cmp-3"><span class="cmp-off">+ Thêm vào so sánh</span><span class="cmp-on">Đã chọn</span></label>
@@ -162,9 +196,15 @@
             <span class="card-indicator" aria-hidden="true"></span>
             <img class="card-media" src="https://images.unsplash.com/photo-1499750310107-5fef28a66643?auto=format&fit=crop&w=600&q=80" alt="Blog cá nhân" />
             <div class="card-body">
-              <h3 class="card-title" aria-label="Blog Cá Nhân"><span class="dance-letter" style="--letter-index:0" aria-hidden="true">B</span><span class="dance-letter" style="--letter-index:1" aria-hidden="true">l</span><span class="dance-letter" style="--letter-index:2" aria-hidden="true">o</span><span class="dance-letter" style="--letter-index:3" aria-hidden="true">g</span><span class="dance-letter" style="--letter-index:4" aria-hidden="true">&nbsp;</span><span class="dance-letter" style="--letter-index:5" aria-hidden="true">C</span><span class="dance-letter" style="--letter-index:6" aria-hidden="true">á</span><span class="dance-letter" style="--letter-index:7" aria-hidden="true">&nbsp;</span><span class="dance-letter" style="--letter-index:8" aria-hidden="true">N</span><span class="dance-letter" style="--letter-index:9" aria-hidden="true">h</span><span class="dance-letter" style="--letter-index:10" aria-hidden="true">â</span><span class="dance-letter" style="--letter-index:11" aria-hidden="true">n</span></h3>
+              <h3 class="card-title" aria-label="Blog Cá Nhân">
+                <span class="dance-letter" style="--letter-index:0" aria-hidden="true">B</span><span class="dance-letter" style="--letter-index:1" aria-hidden="true">l</span><span class="dance-letter" style="--letter-index:2" aria-hidden="true">o</span><span class="dance-letter" style="--letter-index:3" aria-hidden="true">g</span><span class="dance-letter" style="--letter-index:4" aria-hidden="true">&nbsp;</span><span class="dance-letter" style="--letter-index:5" aria-hidden="true">C</span><span class="dance-letter" style="--letter-index:6" aria-hidden="true">á</span><span class="dance-letter" style="--letter-index:7" aria-hidden="true">&nbsp;</span><span class="dance-letter" style="--letter-index:8" aria-hidden="true">N</span><span class="dance-letter" style="--letter-index:9" aria-hidden="true">h</span><span class="dance-letter" style="--letter-index:10" aria-hidden="true">â</span><span class="dance-letter" style="--letter-index:11" aria-hidden="true">n</span>
+              </h3>
               <p class="card-desc">Trang chia sẻ kiến thức công nghệ với trải nghiệm đọc mượt mà.</p>
-              <ul class="tag-list"><li>HTML5</li><li>CSS Modern</li><li>UI/UX</li></ul>
+              <ul class="tag-list">
+                <li>HTML5</li>
+                <li>CSS Modern</li>
+                <li>UI/UX</li>
+              </ul>
               <a class="card-link project-open" href="#project-4">Xem chi tiết <i class="fa-solid fa-arrow-right"></i></a>
               <input class="cmp-check sr-only" type="checkbox" id="cmp-4" form="compare-form" />
               <label class="compare-button" for="cmp-4"><span class="cmp-off">+ Thêm vào so sánh</span><span class="cmp-on">Đã chọn</span></label>
@@ -174,13 +214,13 @@
       </div>
     </section>
 
+    <!-- Liên hệ hợp tác -->
     <section id="contact" class="section">
       <div class="container">
         <h2 class="section-title">Liên hệ hợp tác</h2>
         <p class="section-sub">Tôi luôn sẵn sàng đón nhận các cơ hội thực tập và dự án mới.</p>
 
         <div class="quick-message">
-          <!-- [SỬA] button -> checkbox ẩn + label để mở/đóng form -->
           <input type="checkbox" id="quick-toggle" class="sr-only" aria-label="Mở hoặc đóng form tin nhắn nhanh" />
           <label class="quick-message-toggle" id="quick-message-toggle" for="quick-toggle">
             <span class="quick-message-label"><i class="fa-regular fa-paper-plane"></i><span>Gửi tin nhắn liên hệ nhanh</span></span>
@@ -197,8 +237,6 @@
                   <div class="form-progress-fill" id="form-progress-fill"></div>
                 </div>
 
-                <!-- [SỬA] bỏ novalidate để trình duyệt tự kiểm tra ô bắt buộc;
-                     action="#message-status" để khi bấm gửi sẽ hiện thông báo bên dưới -->
                 <form id="message-form" action="#message-status" method="get">
                   <div class="message-fields">
                     <div class="message-field">
@@ -238,7 +276,6 @@
             </div>
           </div>
 
-          <!-- [SỬA] chuyển ra ngoài form, bỏ thuộc tính hidden; CSS tự hiện khi bấm gửi -->
           <p class="message-status" id="message-status" role="status" aria-live="polite">
             Tính năng đang phát triển, vui lòng liên hệ qua các kênh bên dưới.
           </p>
@@ -266,6 +303,7 @@
     </section>
   </main>
 
+  <!-- Footer -->
   <footer class="site-footer">
     <div class="container footer-inner">
       <p>© 2026 Trần Đăng Bình. Designed with Modern HTML5 &amp; CSS3.</p>
@@ -273,10 +311,7 @@
     </div>
   </footer>
 
-  <!-- [BỎ] hộp thoại "Bật chế độ Pro?" (vì đã bỏ nút Pro) -->
-
-  <!-- [SỬA] 4 hộp thoại chi tiết dự án viết sẵn, mở bằng :target (link #project-N).
-       Mỗi hộp thoại đi kèm 1 link nền để bấm ra ngoài là đóng. -->
+  <!-- Hộp thoại chi tiết dự án (mở bằng :target) -->
   <dialog class="project-dialog" id="project-1">
     <div class="dialog-content">
       <img class="dialog-project-image" src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=600&q=80" alt="Landing Page sản phẩm" />
@@ -321,18 +356,32 @@
   </dialog>
   <a class="modal-backdrop" href="#projects" aria-label="Đóng"></a>
 
-  <!-- [SỬA] "So sánh dự án": dialog JavaScript -> khay trượt lên khi tick chọn -->
+  <!-- Khay so sánh dự án trượt từ đáy -->
   <form class="compare-tray dialog-content" id="compare-form" aria-label="So sánh dự án">
     <h2>So sánh dự án</h2>
     <div class="compare-columns" id="compare-columns">
-      <div class="cmp-item ci-1"><h3>Landing Page sản phẩm</h3><p>Trang giới thiệu sản phẩm tương thích đa thiết bị, tối ưu tốc độ và chuẩn SEO.</p><p>Công nghệ: HTML5 CSS SEO Responsive</p></div>
-      <div class="cmp-item ci-2"><h3>Ứng dụng Todo List</h3><p>Quản lý công việc thông minh với LocalStorage và giao diện tối giản.</p><p>Công nghệ: JavaScript LocalStorage CSS</p></div>
-      <div class="cmp-item ci-3"><h3>Weather Dashboard</h3><p>Bảng điều khiển thời tiết trực quan lấy dữ liệu realtime từ REST API.</p><p>Công nghệ: JavaScript CSS Responsive</p></div>
-      <div class="cmp-item ci-4"><h3>Blog Cá Nhân</h3><p>Trang chia sẻ kiến thức công nghệ với trải nghiệm đọc mượt mà.</p><p>Công nghệ: HTML5 CSS Figma</p></div>
+      <div class="cmp-item ci-1">
+        <h3>Landing Page sản phẩm</h3>
+        <p>Trang giới thiệu sản phẩm tương thích đa thiết bị, tối ưu tốc độ và chuẩn SEO.</p>
+        <p>Công nghệ: HTML5 CSS SEO Responsive</p>
+      </div>
+      <div class="cmp-item ci-2">
+        <h3>Ứng dụng Todo List</h3>
+        <p>Quản lý công việc thông minh với LocalStorage và giao diện tối giản.</p>
+        <p>Công nghệ: JavaScript LocalStorage CSS</p>
+      </div>
+      <div class="cmp-item ci-3">
+        <h3>Weather Dashboard</h3>
+        <p>Bảng điều khiển thời tiết trực quan lấy dữ liệu realtime từ REST API.</p>
+        <p>Công nghệ: JavaScript CSS Responsive</p>
+      </div>
+      <div class="cmp-item ci-4">
+        <h3>Blog Cá Nhân</h3>
+        <p>Trang chia sẻ kiến thức công nghệ với trải nghiệm đọc mượt mà.</p>
+        <p>Công nghệ: HTML5 CSS Figma</p>
+      </div>
     </div>
     <div class="dialog-actions"><button class="btn btn-outline" type="reset">Bỏ chọn tất cả</button></div>
   </form>
-
-  <!-- [BỎ] toàn bộ thẻ <script> -->
 </body>
 </html>
